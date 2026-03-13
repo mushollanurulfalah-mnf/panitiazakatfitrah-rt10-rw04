@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Zakat Fitrah Warga RT.010 RW.04</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#183326;--emerald:#2d6a4f;--jade:#40916c;--mint:#74c69d;
+  --gold:#c9a84c;--gold-light:#e8c97a;
+  --purple:#7c3aed;--purple-light:#a78bfa;--purple-bg:#f5f3ff;--purple-b:#ddd6fe;
+  --dark:#16211a;--mid:#3d5a47;--light:#7a9e8c;
+  --border:#d4e8db;--bg:#f4f9f6;--card:#fff;--surface:#edf7f1;
+  --red:#dc2626;--red-bg:#fef2f2;--red-b:#fecaca;
+  --blue:#2563eb;--blue-bg:#eff6ff;--blue-b:#bfdbfe;
+  --orange:#d97706;--orange-bg:#fffbeb;--orange-b:#fde68a;
+  --green:#16a34a;
+  --shadow-sm:0 2px 8px rgba(26,58,42,.09);
+  --shadow-md:0 6px 24px rgba(26,58,42,.13);
+  --shadow-lg:0 16px 48px rgba(26,58,42,.2);
+  --r:10px;--rl:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(64,145,108,.055) 1px,transparent 0);background-size:28px 28px;pointer-events:none;z-index:0}
+
+/* ══════════ LOGIN SCREEN ══════════ */
+#loginScreen{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;
+  background:linear-gradient(160deg,#0d2418 0%,var(--forest) 40%,#1e4535 100%)}
+#loginScreen.hidden{display:none}
+#loginScreen::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(201,168,76,.13),transparent),
+              radial-gradient(ellipse 50% 40% at 100% 100%,rgba(124,58,237,.09),transparent);pointer-events:none}
+.lw{width:100%;max-width:420px;position:relative;z-index:1;animation:fadeUp .42s cubic-bezier(.34,1.2,.64,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.lh{text-align:center;margin-bottom:26px}
+.l-ar{font-family:'Amiri',serif;font-size:50px;color:var(--gold);display:block;line-height:1;filter:drop-shadow(0 2px 14px rgba(201,168,76,.4))}
+.l-title{font-size:15px;font-weight:800;color:#fff;margin:9px 0 3px}
+.l-sub{font-size:11px;color:rgba(255,255,255,.38);line-height:1.65}
+.role-grid{display:flex;flex-direction:column;gap:9px;margin-bottom:10px}
+
+/* role buttons */
+.rbtn{background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;
+  padding:14px 17px;cursor:pointer;display:flex;align-items:center;gap:13px;width:100%;font-family:inherit;transition:all .22s}
+.rbtn:hover{transform:translateY(-1px)}
+.rbtn.warga:hover{background:rgba(64,145,108,.14);border-color:rgba(116,198,157,.4)}
+.rbtn.panitia:hover{background:rgba(124,58,237,.12);border-color:rgba(167,139,250,.4)}
+.rbtn.admin:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.4)}
+.ri{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.ri.g{background:rgba(64,145,108,.22)}
+.ri.p{background:rgba(124,58,237,.2)}
+.ri.y{background:rgba(201,168,76,.2)}
+.rt{text-align:left}
+.rt h3{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.rt p{font-size:10.5px;color:rgba(255,255,255,.38);line-height:1.35}
+.r-arr{margin-left:auto;color:rgba(255,255,255,.22);font-size:18px}
+
+/* password panels */
+.pwd-panel{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:16px;display:none;margin-top:-3px}
+.pwd-panel.show{display:block;animation:fadeIn .18s ease}
+.pp-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:1.3px;margin-bottom:9px}
+.pwd-wrap{position:relative}
+.pwd-inp{width:100%;padding:11px 42px 11px 13px;background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;font-size:14px;
+  font-family:inherit;outline:none;transition:border-color .2s}
+.pwd-inp::placeholder{color:rgba(255,255,255,.27)}
+.pwd-inp:focus{border-color:var(--gold)}
+.pwd-eye{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;
+  color:rgba(255,255,255,.32);cursor:pointer;padding:4px;line-height:0}
+.pwd-err{font-size:11px;color:#f87171;margin-top:6px;display:none;animation:shake .3s ease}
+.btn-panel-go{width:100%;margin-top:11px;padding:11px;border:none;border-radius:9px;font-size:13.5px;
+  font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s}
+.btn-panel-go.panitia-go{background:linear-gradient(135deg,var(--purple),#5b21b6);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.35)}
+.btn-panel-go.admin-go{background:linear-gradient(135deg,var(--gold),#8a5e00);color:#fff;box-shadow:0 4px 14px rgba(201,168,76,.35)}
+.btn-panel-go:hover{transform:translateY(-1px)}
+.l-footer{text-align:center;font-size:10px;color:rgba(255,255,255,.18);margin-top:13px}
+
+/* ══════════ ACCESS DENIED ══════════ */
+#accessDenied{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.55);backdrop-filter:blur(5px);
+  display:none;align-items:center;justify-content:center;padding:16px}
+#accessDenied.show{display:flex}
+.adbox{background:var(--card);border-radius:var(--rl);padding:28px 24px;max-width:310px;width:100%;
+  text-align:center;box-shadow:var(--shadow-lg);animation:slideUp .28s cubic-bezier(.34,1.2,.64,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.adbox .adicon{font-size:42px;margin-bottom:10px}
+.adbox h2{font-size:16px;font-weight:800;color:var(--dark);margin-bottom:6px}
+.adbox p{font-size:12px;color:var(--mid);line-height:1.6;margin-bottom:14px}
+.ad-pwd-box{background:var(--surface);border-radius:9px;padding:13px;margin-bottom:11px}
+.ad-mini-lbl{font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.q-err{font-size:11px;color:var(--red);margin-top:5px;display:none}
+
+/* ══════════ SIDEBAR ══════════ */
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:252px;background:var(--forest);
+  display:flex;flex-direction:column;z-index:100;
+  transition:transform .32s cubic-bezier(.4,0,.2,1);box-shadow:3px 0 20px rgba(0,0,0,.2)}
+.sidebar-logo{padding:20px 17px 15px;border-bottom:1px solid rgba(255,255,255,.07);text-align:center}
+.sl-ar{font-family:'Amiri',serif;font-size:17px;color:var(--gold);letter-spacing:1.5px;display:block;margin-bottom:4px}
+.sl-name{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.42);letter-spacing:1.4px;text-transform:uppercase}
+.sl-sub{font-size:9.5px;color:rgba(255,255,255,.28);margin-top:1px;line-height:1.4}
+
+/* role pill */
+.role-pill{margin:10px 13px 0;padding:6px 11px;border-radius:7px;display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600}
+.role-pill.warga{background:rgba(64,145,108,.14);color:var(--mint);border:1px solid rgba(64,145,108,.2)}
+.role-pill.panitia{background:rgba(124,58,237,.14);color:var(--purple-light);border:1px solid rgba(124,58,237,.22)}
+.role-pill.admin{background:rgba(201,168,76,.13);color:var(--gold-light);border:1px solid rgba(201,168,76,.2)}
+
+/* year switcher */
+.yr-sw{margin:10px 13px 0;display:flex;align-items:center;gap:6px}
+.yr-sel{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  color:#fff;border-radius:7px;padding:7px 9px;font-size:12px;font-family:inherit;outline:none;cursor:pointer}
+.yr-sel option{background:var(--forest);color:#fff}
+.btn-add-yr{width:30px;height:30px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.25);
+  color:var(--gold-light);border-radius:7px;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btn-add-yr:hover{background:rgba(201,168,76,.28)}
+
+.sidebar-nav{flex:1;padding:10px;overflow-y:auto}
+.nav-sec{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.26);padding:10px 9px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;cursor:pointer;
+  transition:all .18s;color:rgba(255,255,255,.56);font-size:12.5px;font-weight:500;margin-bottom:1px}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item.active{background:linear-gradient(135deg,var(--jade),var(--emerald));color:#fff;box-shadow:0 3px 12px rgba(45,106,79,.45)}
+.nav-item.hidden-nav{display:none}
+.nav-item svg{width:16px;height:16px;flex-shrink:0}
+.nav-badge{margin-left:auto;background:var(--gold);color:var(--forest);border-radius:20px;
+  font-size:9.5px;font-weight:800;padding:2px 6px;min-width:20px;text-align:center}
+
+.sidebar-foot{padding:10px 13px;border-top:1px solid rgba(255,255,255,.07)}
+.yr-lbl{display:flex;align-items:center;justify-content:center;gap:5px;
+  background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.17);
+  color:var(--gold-light);border-radius:20px;font-size:10px;padding:4px 10px;font-weight:600;margin-bottom:7px}
+.btn-logout{width:100%;padding:7px;border-radius:7px;border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.04);color:rgba(255,255,255,.42);
+  font-size:11.5px;font-family:inherit;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:6px}
+.btn-logout:hover{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.25);color:#f87171}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99}
+.sidebar.open~.sidebar-overlay{display:block}
+
+/* ══════════ MAIN ══════════ */
+.main{margin-left:252px;min-height:100vh;position:relative;z-index:1}
+.topbar{background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);
+  padding:0 22px;display:flex;align-items:center;justify-content:space-between;
+  height:57px;position:sticky;top:0;z-index:50}
+.tb-l{display:flex;align-items:center;gap:10px}
+.pg-title{font-size:14px;font-weight:800;color:var(--dark)}
+.pg-sub{font-size:10.5px;color:var(--light);margin-top:1px}
+.tb-r{display:flex;align-items:center;gap:7px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:5px;border-radius:7px;color:var(--dark)}
+.hamburger:hover{background:var(--surface)}
+.tb-role{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:10.5px;font-weight:700}
+.tb-role.warga{background:rgba(64,145,108,.1);color:var(--jade)}
+.tb-role.panitia{background:var(--purple-bg);color:var(--purple)}
+.tb-role.admin{background:rgba(201,168,76,.12);color:#8a5e00}
+.tb-year{background:var(--surface);border:1px solid var(--border);color:var(--mid);
+  border-radius:20px;font-size:10.5px;font-weight:700;padding:4px 10px;display:flex;align-items:center;gap:4px}
+
+/* ══════════ ROLE VISIBILITY ══════════ */
+/* admin-only: full access */
+.admin-only{display:none}
+body.role-admin .admin-only{display:inline-flex}
+body.role-admin .admin-only.blk{display:block}
+body.role-admin .admin-only.flex-col{display:flex}
+/* panitia-up: panitia + admin */
+.panitia-up{display:none}
+body.role-panitia .panitia-up,body.role-admin .panitia-up{display:inline-flex}
+body.role-panitia .panitia-up.blk,body.role-admin .panitia-up.blk{display:block}
+body.role-panitia .panitia-up.flex-col,body.role-admin .panitia-up.flex-col{display:flex}
+
+/* ══════════ BUTTONS ══════════ */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:8px;font-size:12px;
+  font-weight:600;cursor:pointer;border:none;transition:all .18s;font-family:inherit;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--jade),var(--emerald));color:#fff;box-shadow:0 2px 8px rgba(45,106,79,.28)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(45,106,79,.38)}
+.btn-secondary{background:var(--surface);color:var(--emerald);border:1.5px solid var(--border)}
+.btn-secondary:hover{background:var(--border)}
+.btn-danger{background:var(--red-bg);color:var(--red);border:1.5px solid var(--red-b)}
+.btn-danger:hover{background:#fee2e2}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#8a5e00);color:#fff;box-shadow:0 2px 8px rgba(201,168,76,.3)}
+.btn-gold:hover{transform:translateY(-1px)}
+.btn-purple{background:linear-gradient(135deg,var(--purple),#5b21b6);color:#fff;box-shadow:0 2px 8px rgba(124,58,237,.28)}
+.btn-purple:hover{transform:translateY(-1px)}
+.btn-sm{padding:5px 9px;font-size:11px;border-radius:6px}
+.btn svg{width:13px;height:13px}
+
+/* ══════════ PAGES ══════════ */
+.page{display:none;padding:22px;animation:fadeIn .28s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════ DASHBOARD ══════════ */
+.banner{background:linear-gradient(135deg,var(--forest) 0%,var(--emerald) 100%);
+  border-radius:var(--rl);padding:20px 24px;display:flex;align-items:center;gap:16px;
+  margin-bottom:18px;position:relative;overflow:hidden}
+.banner::after{content:'';position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.03)}
+.b-ar{font-family:'Amiri',serif;font-size:38px;color:var(--gold-light);flex-shrink:0}
+.b-txt h2{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.b-txt p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.55}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px;margin-bottom:18px}
+.sc{background:var(--card);border-radius:var(--rl);padding:17px;box-shadow:var(--shadow-sm);
+  border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.sc:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc.g::before{background:linear-gradient(90deg,var(--jade),var(--mint))}
+.sc.y::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.sc.b::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.sc.o::before{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.sico{width:37px;height:37px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
+.sico.g{background:rgba(64,145,108,.12);color:var(--jade)}
+.sico.y{background:rgba(201,168,76,.12);color:var(--gold)}
+.sico.b{background:rgba(59,130,246,.1);color:#3b82f6}
+.sico.o{background:rgba(217,119,6,.1);color:var(--orange)}
+.sico svg{width:18px;height:18px}
+.sv{font-size:25px;font-weight:800;color:var(--dark);line-height:1}
+.sl{font-size:11px;color:var(--light);margin-top:3px;font-weight:500}
+.sd{font-size:10px;color:var(--mint);margin-top:4px;font-weight:600}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:18px}
+.ic{background:var(--card);border-radius:var(--rl);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+.ic-hd{padding:13px 15px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.ic-hd h3{font-size:12.5px;font-weight:700;color:var(--dark)}
+.irow{display:flex;align-items:center;justify-content:space-between;padding:9px 15px;border-bottom:1px solid var(--surface);font-size:12px}
+.irow:last-child{border-bottom:none}
+.irow-l{color:var(--mid)}
+.irow-v{font-weight:700;color:var(--dark)}
+.prog-wrap{padding:15px 17px}
+.pr{margin-bottom:11px}
+.pr:last-child{margin-bottom:0}
+.pr-lbl{display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:4px;color:var(--mid)}
+.prog-bar{height:6px;background:var(--surface);border-radius:4px;overflow:hidden}
+.pf{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.pf.g{background:linear-gradient(90deg,var(--jade),var(--mint))}
+.pf.y{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.pf.o{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.pf.p{background:linear-gradient(90deg,var(--purple),var(--purple-light))}
+
+/* ══════════ TABLE ══════════ */
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:9px}
+.sec-title{font-size:17px;font-weight:800;color:var(--dark)}
+.sec-sub{font-size:11px;color:var(--light);margin-top:1px}
+.sec-acts{display:flex;gap:7px;flex-wrap:wrap}
+.view-notice{display:none;align-items:center;gap:7px;background:var(--blue-bg);border:1px solid var(--blue-b);
+  border-radius:8px;padding:8px 13px;font-size:12px;color:var(--blue);margin-bottom:12px}
+body.role-warga .view-notice{display:flex}
+.view-notice svg{flex-shrink:0;width:13px;height:13px}
+.tcard{background:var(--card);border-radius:var(--rl);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+.tbar{display:flex;align-items:center;gap:8px;padding:12px 15px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.sw{flex:1;min-width:160px;position:relative}
+.sw svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--light);pointer-events:none}
+.si{width:100%;padding:8px 10px 8px 30px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-family:inherit;outline:none;transition:border-color .2s;background:var(--surface);color:var(--dark)}
+.si:focus{border-color:var(--jade);background:#fff}
+.fs{padding:7px 9px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-family:inherit;outline:none;cursor:pointer;background:var(--surface);color:var(--dark)}
+.fs:focus{border-color:var(--jade)}
+.twrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead{background:var(--surface)}
+thead th{padding:10px 12px;text-align:left;font-weight:700;font-size:9.5px;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--light);border-bottom:1px solid var(--border);white-space:nowrap;
+  cursor:pointer;user-select:none}
+thead th:hover{color:var(--emerald)}
+thead th.ns{cursor:default}
+thead th.ns:hover{color:var(--light)}
+tbody tr{border-bottom:1px solid var(--surface);transition:background .12s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(64,145,108,.035)}
+tbody tr.setor-row{background:rgba(22,163,74,.04)}
+tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
+.td-no{width:36px;font-size:10px;color:var(--light);font-weight:600;text-align:center}
+.td-nm{font-weight:600}
+.td-n{text-align:center;font-weight:700;color:var(--emerald)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:600}
+.b-janda{background:rgba(239,68,68,.1);color:var(--red)}
+.b-ok{background:rgba(64,145,108,.1);color:var(--jade)}
+.b-beras{background:rgba(234,179,8,.1);color:#92620a}
+.b-uang{background:rgba(59,130,246,.1);color:#1d4ed8}
+.tfoot{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;
+  background:var(--surface);border-top:1px solid var(--border);font-size:11px;color:var(--light);flex-wrap:wrap;gap:7px}
+.pagination{display:flex;align-items:center;gap:3px}
+.pg-b{width:26px;height:26px;border-radius:5px;border:1.5px solid var(--border);background:var(--card);
+  cursor:pointer;font-size:11px;font-weight:600;color:var(--mid);display:flex;align-items:center;justify-content:center;transition:all .12s}
+.pg-b:hover{border-color:var(--jade);color:var(--jade)}
+.pg-b.active{background:var(--jade);border-color:var(--jade);color:#fff}
+.pg-b:disabled{opacity:.4;cursor:default}
+.act-cell{display:flex;gap:4px;align-items:center}
+
+/* ══════════ SETOR CHECKBOX ══════════ */
+.setor-chk{width:23px;height:23px;border-radius:6px;border:2px solid var(--border);
+  background:var(--surface);display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;cursor:default}
+.setor-chk.checked{background:var(--green);border-color:var(--green)}
+.setor-chk.clickable{cursor:pointer}
+.setor-chk.clickable:hover:not(.checked){border-color:var(--green);background:rgba(22,163,74,.12)}
+.setor-chk.clickable.checked:hover{background:#15803d;border-color:#15803d}
+.setor-chk svg{width:13px;height:13px;color:#fff;display:none}
+.setor-chk.checked svg{display:block}
+.setor-dt{font-size:9.5px;color:var(--light);margin-top:2px;text-align:center}
+.setor-bar{background:var(--orange-bg);border:1px solid var(--orange-b);border-radius:9px;
+  padding:9px 15px;display:flex;align-items:center;gap:11px;margin-bottom:12px;flex-wrap:wrap}
+.sb-i{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600}
+.sb-dot{width:9px;height:9px;border-radius:50%}
+.sb-dot.done{background:var(--green)}
+.sb-dot.pend{background:var(--orange)}
+.sb-prog{flex:1;min-width:100px}
+.sb-pct{font-size:11px;font-weight:700;color:var(--orange);margin-left:auto}
+
+/* ══════════ MODAL ══════════ */
+.mov{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);
+  z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.mov.open{display:flex;animation:fadeIn .18s ease}
+.modal{background:var(--card);border-radius:var(--rl);width:100%;max-width:480px;
+  box-shadow:var(--shadow-lg);animation:slideUp .24s cubic-bezier(.34,1.56,.64,1);max-height:92vh;overflow-y:auto}
+.mhd{padding:20px 20px 0;display:flex;align-items:center;justify-content:space-between}
+.mhd h2{font-size:15px;font-weight:800;color:var(--dark)}
+.mc{width:28px;height:28px;border-radius:6px;border:none;background:var(--surface);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--mid);transition:background .12s}
+.mc:hover{background:var(--border)}
+.mb{padding:16px 20px}
+.fg{margin-bottom:12px}
+.flbl{display:block;font-size:10.5px;font-weight:700;color:var(--mid);margin-bottom:4px;
+  text-transform:uppercase;letter-spacing:.5px}
+.finp,.fsel{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:7px;
+  font-size:13px;font-family:inherit;outline:none;transition:border-color .2s;background:#fff;color:var(--dark)}
+.finp:focus,.fsel:focus{border-color:var(--jade)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mft{padding:0 20px 20px;display:flex;justify-content:flex-end;gap:8px}
+
+/* ══════════ SETUP PAGE ══════════ */
+.setup-wrap{max-width:640px;margin:0 auto}
+.step-card{background:var(--card);border-radius:var(--rl);padding:20px;box-shadow:var(--shadow-sm);border:1px solid var(--border);margin-bottom:12px}
+.sth{display:flex;align-items:flex-start;gap:12px;margin-bottom:13px}
+.snum{width:27px;height:27px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--jade),var(--emerald));color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.sth h3{font-size:13px;font-weight:700;margin-bottom:3px}
+.sth p{font-size:11.5px;color:var(--mid);line-height:1.6}
+.code-box{background:var(--forest);color:var(--gold-light);border-radius:8px;padding:13px;
+  font-family:'Courier New',monospace;font-size:10.5px;line-height:1.65;overflow-x:auto;
+  white-space:pre;margin-top:9px}
+.inp-row{display:flex;gap:8px;margin-top:8px;align-items:flex-end}
+.inp-row input{flex:1}
+.sdot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px}
+.sdot.ok{background:var(--green)}
+.sdot.err{background:var(--red)}
+.sdot.off{background:var(--light)}
+
+/* panitia password management */
+.panitia-pwd-section{background:var(--surface);border-radius:10px;padding:15px;border:1px solid var(--border)}
+.pwd-item{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)}
+.pwd-item:last-child{border-bottom:none}
+.pwd-item-lbl{font-size:12.5px;font-weight:600;color:var(--dark)}
+.pwd-item-sub{font-size:11px;color:var(--light);margin-top:1px}
+
+/* ══════════ LOADING / EMPTY ══════════ */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:42px;color:var(--light);gap:10px}
+.spin{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--jade);border-radius:50%;animation:spin .75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{text-align:center;padding:42px 16px;color:var(--light)}
+.empty svg{width:38px;height:38px;margin:0 auto 10px;opacity:.27;display:block}
+.empty h3{font-size:14px;font-weight:600;color:var(--mid)}
+.empty p{font-size:11px;margin-top:3px}
+
+/* ══════════ TOAST ══════════ */
+#toasts{position:fixed;bottom:16px;right:16px;z-index:500}
+.toast{background:var(--forest);color:#fff;padding:10px 14px;border-radius:9px;font-size:12.5px;
+  font-weight:500;box-shadow:var(--shadow-md);min-width:190px;display:flex;align-items:center;gap:8px;
+  animation:toastIn .26s cubic-bezier(.34,1.56,.64,1);margin-top:6px}
+.toast.ok{background:var(--emerald)}
+.toast.err{background:var(--red)}
+.toast.warn{background:var(--orange)}
+.toast.info{background:var(--purple)}
+@keyframes toastIn{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:translateX(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:880px){
+  .sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}.hamburger{display:flex}
+  .info-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .page{padding:12px}.stats-grid{grid-template-columns:1fr 1fr}.sv{font-size:22px}
+  .topbar{padding:0 12px}.frow{grid-template-columns:1fr}
+  .sec-hdr{flex-direction:column;align-items:flex-start}
+  .banner{flex-direction:column;text-align:center}
+}
+@media print{.sidebar,.topbar,.tbar .btn,.act-cell,.pagination,#loginScreen{display:none!important}
+  .main{margin-left:0}.page{display:block!important;padding:0}body::before{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ════════ LOGIN ════════ -->
+<div id="loginScreen">
+  <div class="lw">
+    <div class="lh">
+      <span class="l-ar">بَيْتُ الزَّكَاة</span>
+      <div class="l-title">Panitia Zakat Fitrah</div>
+      <div class="l-sub" style="color:white">RT 010 RW 04 - Sukabumi Selatan</div>
+    </div>
+
+    <div class="role-grid">
+      <!-- WARGA -->
+      <button class="rbtn warga" onclick="loginAs('warga')">
+        <div class="ri g">🏠</div>
+        <div class="rt"><h3>Warga</h3><p>Lihat data zakat fitrah. Tanpa kata sandi.</p></div>
+        <span class="r-arr">›</span>
+      </button>
+
+      <!-- PANITIA -->
+      <button class="rbtn panitia" onclick="togglePanel('panitia')">
+        <div class="ri p">👥</div>
+        <div class="rt"><h3>Panitia Zakat</h3><p>Input, edit, hapus &amp; centang setor beras. Perlu kata sandi.</p></div>
+        <span class="r-arr" id="arrPanitia">›</span>
+      </button>
+      <div class="pwd-panel" id="panelPanitia">
+        <div class="pp-label">🔐 Kata Sandi Panitia</div>
+        <div class="pwd-wrap">
+          <input type="password" class="pwd-inp" id="pwdPanitia" placeholder="Masukkan kata sandi panitia..." onkeydown="if(event.key==='Enter')doLogin('panitia')">
+          <button class="pwd-eye" onclick="toggleEye('pwdPanitia')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <div class="pwd-err" id="errPanitia">❌ Kata sandi salah. Coba lagi.</div>
+        <button class="btn-panel-go panitia-go" onclick="doLogin('panitia')">Masuk sebagai Panitia</button>
+      </div>
+
+      <!-- ADMIN -->
+      <button class="rbtn admin" onclick="togglePanel('admin')">
+        <div class="ri y">👨‍💼</div>
+        <div class="rt"><h3>Admin</h3><p>Akses penuh termasuk pengaturan &amp; database.</p></div>
+        <span class="r-arr" id="arrAdmin">›</span>
+      </button>
+      <div class="pwd-panel" id="panelAdmin">
+        <div class="pp-label">🔐 Kata Sandi Admin</div>
+        <div class="pwd-wrap">
+          <input type="password" class="pwd-inp" id="pwdAdmin" placeholder="Masukkan kata sandi admin..." onkeydown="if(event.key==='Enter')doLogin('admin')">
+          <button class="pwd-eye" onclick="toggleEye('pwdAdmin')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <div class="pwd-err" id="errAdmin">❌ Kata sandi salah. Coba lagi.</div>
+        <button class="btn-panel-go admin-go" onclick="doLogin('admin')">Masuk sebagai Admin</button>
+      </div>
+    </div>
+    <div class="l-footer">Panitia Zakat Fitrah RT.010 RW.04 — Sistem Multi-Tahun</div>
+  </div>
+</div>
+
+<!-- ════════ ACCESS DENIED ════════ -->
+<div id="accessDenied">
+  <div class="adbox">
+    <div class="adicon" id="adIcon">🔒</div>
+    <h2 id="adTitle">Akses Terbatas</h2>
+    <p id="adMsg">Fitur ini membutuhkan hak akses lebih tinggi.</p>
+    <div class="ad-pwd-box" id="adPwdBox">
+      <div class="ad-mini-lbl" id="adPwdLabel">Kata Sandi</div>
+      <div class="pwd-wrap">
+        <input type="password" class="finp" id="qPwd" placeholder="Masukkan kata sandi..." onkeydown="if(event.key==='Enter')quickLogin()">
+      </div>
+      <div class="q-err" id="qErr">❌ Kata sandi salah.</div>
+      <button class="btn btn-purple" style="width:100%;margin-top:9px;justify-content:center" id="adLoginBtn" onclick="quickLogin()">Masuk</button>
+    </div>
+    <button class="btn btn-secondary" style="width:100%;justify-content:center;margin-top:4px" onclick="closeAD()">Batal</button>
+  </div>
+</div>
+
+<!-- ════════ SIDEBAR ════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="sl-ar">بَيْتُ الزَّكَاة</span>
+    <div class="sl-name" style="color: #f5f3ff;">Panitia Zakat Fitrah</div>
+    <div class="sl-sub" style="color: #fffbeb;">RT 010 RW 04 — Sukabumi Selatan</div>
+  </div>
+  <div id="rolePill" class="role-pill warga"><span>🏠</span><span id="roleLabel">Mode Warga</span></div>
+  <div class="yr-sw">
+    <select class="yr-sel" id="yrSel" onchange="onYearChange()"></select>
+    <button class="btn-add-yr admin-only" onclick="openAddYear()" title="Tambah Tahun Baru">＋</button>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-sec">Menu Utama</div>
+    <div class="nav-item active" onclick="showPage('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-sec">Data Zakat</div>
+    <div class="nav-item" onclick="showPage('penerimaan')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Penerimaan (Muzakki)
+      <span class="nav-badge" id="bdgP">—</span>
+    </div>
+    <div class="nav-item" onclick="showPage('pendayagunaan')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Pendayagunaan (Mustahiq)
+      <span class="nav-badge" id="bdgD">—</span>
+    </div>
+    <!-- Setup: hanya admin -->
+    <div class="nav-sec" id="navSecAdmin" style="display:none">Admin</div>
+    <div class="nav-item" id="navSetup" onclick="showPage('setup')" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Pengaturan &amp; Database
+    </div>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="yr-lbl"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span id="yrLblTxt">—</span></div>
+    <button class="btn-logout" onclick="logout()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Ganti Akun / Keluar
+    </button>
+  </div>
+</aside>
+<div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- ════════ MAIN ════════ -->
+<div class="main">
+  <header class="topbar">
+    <div class="tb-l">
+      <button class="hamburger" onclick="toggleSidebar()">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div><div class="pg-title" id="pgTitle">Dashboard</div><div class="pg-sub" style="color: rgb(17, 17, 17);">Panitia Zakat Fitrah RT.010 RW.04</div></div>
+    </div>
+    <div class="tb-r">
+      <div class="tb-year"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span id="tbYrTxt">—</span></div>
+      <div class="tb-role warga" id="tbRole">🏠 Warga</div>
+      <!-- Export hanya admin -->
+      <button class="btn btn-gold btn-sm admin-only" onclick="exportData()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
+      </button>
+      <!-- Export panitia juga bisa? Sesuai kebutuhan - panitia bisa export -->
+      <button class="btn btn-secondary btn-sm panitia-up" onclick="exportData()" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
+      </button>
+      <button class="btn btn-secondary btn-sm" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Cetak
+      </button>
+    </div>
+  </header>
+
+  <!-- ── DASHBOARD ── -->
+  <div class="page active" id="page-dashboard">
+    <div class="banner">
+      <div class="b-ar">﷽</div>
+      <div class="b-txt">
+        <h2>Panitia Zakat Fitrah RT.010 RW.04</h2>
+        <p style="color: #ddd6fe;font-weight: bold;">Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</p>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="sc g"><div class="sico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sv" id="stMuz">—</div><div class="sl">Muzakki (KK Pemberi)</div><div class="sd" id="stJiwaM">—</div></div>
+      <div class="sc y"><div class="sico y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="sv" id="stMust">—</div><div class="sl">Mustahiq (KK Penerima)</div><div class="sd" id="stJiwaD">—</div></div>
+      <div class="sc b"><div class="sico b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><div class="sv" id="stBeras">—</div><div class="sl">Total Beras (Liter)</div><div class="sd">@ 3,5 liter / jiwa</div></div>
+      <div class="sc o"><div class="sico o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="sv" id="stSetor">—</div><div class="sl">Sudah Setor ke Musholla</div><div class="sd" id="stSetorPct">—</div></div>
+    </div>
+    <div class="info-grid">
+      <div class="ic"><div class="ic-hd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><h3>Rekapitulasi Penerimaan</h3></div><div id="rekapP"><div class="loading"><div class="spin"></div></div></div></div>
+      <div class="ic"><div class="ic-hd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3>Rekapitulasi Pendayagunaan</h3></div><div id="rekapD"><div class="loading"><div class="spin"></div></div></div></div>
+    </div>
+    <div class="ic">
+      <div class="ic-hd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><h3>Progres &amp; Proporsi</h3></div>
+      <div class="prog-wrap">
+        <div class="pr"><div class="pr-lbl"><span>Muzakki Terdaftar</span><span id="pg1l">—</span></div><div class="prog-bar"><div class="pf g" id="pg1" style="width:0%"></div></div></div>
+        <div class="pr"><div class="pr-lbl"><span>Cakupan Mustahiq</span><span id="pg2l">—</span></div><div class="prog-bar"><div class="pf y" id="pg2" style="width:0%"></div></div></div>
+        <div class="pr"><div class="pr-lbl"><span>Progress Setor Beras ke Musholla</span><span id="pg3l">—</span></div><div class="prog-bar"><div class="pf o" id="pg3" style="width:0%"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PENERIMAAN ── -->
+  <div class="page" id="page-penerimaan">
+    <div class="sec-hdr">
+      <div><div class="sec-title">Data Penerimaan Zakat Fitrah</div><div class="sec-sub" id="subP">Muzakki</div></div>
+      <div class="sec-acts">
+        <button class="btn btn-secondary btn-sm panitia-up" onclick="syncSheets('penerimaan')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Sync
+        </button>
+        <button class="btn btn-primary panitia-up" onclick="openModalGuard('penerimaan')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Muzakki
+        </button>
+      </div>
+    </div>
+    <div class="view-notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Mode <strong>&nbsp;Warga&nbsp;</strong> — Hanya dapat melihat data. Login sebagai Panitia atau Admin untuk mengelola data.</div>
+    <div class="setor-bar">
+      <div class="sb-i"><div class="sb-dot done"></div><span id="stDoneP">0</span>&nbsp;sudah setor</div>
+      <div class="sb-i"><div class="sb-dot pend"></div><span id="stPendP">0</span>&nbsp;belum setor</div>
+      <div class="sb-prog"><div class="prog-bar"><div class="pf o" id="sbFillP" style="width:0%"></div></div></div>
+      <div class="sb-pct" id="sbPctP">0%</div>
+    </div>
+    <div class="tcard">
+      <div class="tbar">
+        <div class="sw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="si" placeholder="Cari nama kepala keluarga..." id="srchP" oninput="renderP()"></div>
+        <select class="fs" id="fBeras" onchange="renderP()"><option value="">Semua</option><option value="beras">Bayar Beras</option><option value="uang">Bayar Uang</option></select>
+        <select class="fs" id="fSetor" onchange="renderP()"><option value="">Semua Status</option><option value="sudah">Sudah Setor</option><option value="belum">Belum Setor</option></select>
+      </div>
+      <div class="twrap">
+        <table>
+          <thead><tr>
+            <th class="td-no ns">No</th>
+            <th onclick="sortT('penerimaan','nama')">Nama KK</th>
+            <th onclick="sortT('penerimaan','jiwa')" style="text-align:center">Jiwa</th>
+            <th onclick="sortT('penerimaan','zakat')" style="text-align:center">Jiwa Zakat</th>
+            <th style="text-align:center" class="ns">Beras (L)</th>
+            <th style="text-align:center" class="ns">Uang (Rp)</th>
+            <th class="ns" style="text-align:center">Setor ke Panitia Zakat</th>
+            <th class="ns panitia-up blk" style="display:none">Aksi</th>
+          </tr></thead>
+          <tbody id="tbP"></tbody>
+        </table>
+      </div>
+      <div class="tfoot"><span id="infoP">—</span><div class="pagination" id="pagP"></div></div>
+    </div>
+  </div>
+
+  <!-- ── PENDAYAGUNAAN ── -->
+  <div class="page" id="page-pendayagunaan">
+    <div class="sec-hdr">
+      <div><div class="sec-title">Data Pendayagunaan Zakat Fitrah</div><div class="sec-sub" id="subD">Mustahiq</div></div>
+      <div class="sec-acts">
+        <button class="btn btn-secondary btn-sm panitia-up" onclick="syncSheets('pendayagunaan')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Sync
+        </button>
+        <button class="btn btn-primary panitia-up" onclick="openModalGuard('pendayagunaan')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Tambah Mustahiq
+        </button>
+      </div>
+    </div>
+    <div class="view-notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Mode <strong>&nbsp;Warga&nbsp;</strong> — Hanya dapat melihat data. Login sebagai Panitia atau Admin untuk mengelola data.</div>
+    <div class="tcard">
+      <div class="tbar">
+        <div class="sw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="si" placeholder="Cari nama kepala keluarga..." id="srchD" oninput="renderD()"></div>
+        <select class="fs" id="fKet" onchange="renderD()"><option value="">Semua Keterangan</option><option value="JANDA">Janda</option><option value="">Umum</option></select>
+      </div>
+      <div class="twrap">
+        <table>
+          <thead><tr>
+            <th class="td-no ns">No</th>
+            <th onclick="sortT('pendayagunaan','nama')">Nama KK</th>
+            <th onclick="sortT('pendayagunaan','jiwa')" style="text-align:center">Jumlah Jiwa</th>
+            <th class="ns">Keterangan</th>
+            <th class="ns panitia-up blk" style="display:none">Aksi</th>
+          </tr></thead>
+          <tbody id="tbD"></tbody>
+        </table>
+      </div>
+      <div class="tfoot"><span id="infoD">—</span><div class="pagination" id="pagD"></div></div>
+    </div>
+  </div>
+
+  <!-- ── SETUP (Admin Only) ── -->
+  <div class="page" id="page-setup">
+    <div class="sec-hdr"><div><div class="sec-title">Pengaturan &amp; Database</div><div class="sec-sub">Hanya dapat diakses oleh Admin</div></div></div>
+    <div class="setup-wrap">
+
+      <div class="step-card">
+        <div class="sth"><div class="snum">1</div><div><h3>Koneksi Google Sheets</h3><p>Buat spreadsheet → <strong>Extensions → Apps Script</strong> → Paste kode → Deploy sebagai <em>Web App</em> (Execute as: Me, Access: Anyone)</p></div></div>
+        <a href="https://sheets.google.com" target="_blank" class="btn btn-primary btn-sm" style="text-decoration:none">Buka Google Sheets ↗</a>
+        <div class="code-box" id="codeBox"></div>
+        <div style="display:flex;gap:7px;margin-top:9px;flex-wrap:wrap">
+          <button class="btn btn-secondary btn-sm" onclick="copyCode()">📋 Salin Kode Apps Script</button>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="sth"><div class="snum">2</div><div><h3>URL Web App</h3><p>Setelah deploy, salin URL dan paste di sini:</p></div></div>
+        <div class="inp-row">
+          <input type="text" class="finp" id="sheetsUrl" placeholder="https://script.google.com/macros/s/...">
+          <button class="btn btn-primary" onclick="saveUrl()">Simpan &amp; Test</button>
+        </div>
+        <div style="margin-top:8px;font-size:11.5px;color:var(--mid)" id="urlStatus"><span class="sdot off"></span>Belum terhubung</div>
+      </div>
+
+      <div class="step-card">
+        <div class="sth"><div class="snum">3</div><div><h3>Manajemen Tahun Data</h3><p>Setiap tahun zakat tersimpan terpisah, data tahun sebelumnya tetap aman.</p></div></div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="openAddYear()">＋ Tambah Tahun Baru</button>
+          <button class="btn btn-secondary" onclick="syncAll()">🔄 Sync Semua</button>
+          <button class="btn btn-gold" onclick="importData()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import Data Awal
+          </button>
+        </div>
+        <div style="margin-top:11px;font-size:12px;color:var(--mid)" id="yearsList"></div>
+      </div>
+
+      <!-- Kelola Password Panitia -->
+      <div class="step-card">
+        <div class="sth"><div class="snum">4</div><div><h3>Kelola Kata Sandi Panitia</h3><p>Admin dapat mengatur dan mengubah kata sandi untuk akun Panitia. Panitia tidak bisa mengubah kata sandinya sendiri.</p></div></div>
+        <div class="panitia-pwd-section">
+          <div class="pwd-item">
+            <div><div class="pwd-item-lbl">👥 Kata Sandi Panitia</div><div class="pwd-item-sub">Digunakan oleh seluruh anggota panitia zakat</div></div>
+            <button class="btn btn-purple btn-sm" onclick="openChangePwd('panitia')">Ubah</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kelola Password Admin -->
+      <div class="step-card">
+        <div class="sth"><div class="snum">5</div><div><h3>Ubah Kata Sandi Admin</h3><p>Kata sandi default: <strong>admin1234</strong>. Segera ganti untuk keamanan.</p></div></div>
+        <div class="frow">
+          <div class="fg" style="margin-bottom:0"><input type="password" class="finp" id="aPwd1" placeholder="Kata sandi admin baru"></div>
+          <div class="fg" style="margin-bottom:0"><input type="password" class="finp" id="aPwd2" placeholder="Konfirmasi kata sandi"></div>
+        </div>
+        <button class="btn btn-secondary" style="margin-top:9px" onclick="changePwd('admin')">Ubah Kata Sandi Admin</button>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /main -->
+
+<!-- ════ MODAL UBAH PWD PANITIA ════ -->
+<div class="mov" id="modal-changepwd">
+  <div class="modal" style="max-width:380px">
+    <div class="mhd"><h2 id="cpwdTitle">Ubah Kata Sandi Panitia</h2><button class="mc" onclick="closeModal('changepwd')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <div class="fg"><label class="flbl">Kata Sandi Baru</label><input type="password" class="finp" id="cpwd1" placeholder="Minimal 6 karakter"></div>
+      <div class="fg"><label class="flbl">Konfirmasi Kata Sandi</label><input type="password" class="finp" id="cpwd2" placeholder="Ulangi kata sandi baru"></div>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('changepwd')">Batal</button><button class="btn btn-purple" onclick="doChangePwd()">Simpan</button></div>
+  </div>
+</div>
+
+<!-- ════ MODAL PENERIMAAN ════ -->
+<div class="mov" id="modal-penerimaan">
+  <div class="modal">
+    <div class="mhd"><h2 id="mPTitle">Tambah Muzakki</h2><button class="mc" onclick="closeModal('penerimaan')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <input type="hidden" id="pId">
+      <div class="fg"><label class="flbl">Nama Kepala Keluarga</label><input type="text" class="finp" id="pNama" placeholder="Masukkan nama KK..."></div>
+      <div class="frow">
+        <div class="fg"><label class="flbl">Jumlah Jiwa (Total)</label><input type="number" class="finp" id="pJiwa" min="1" placeholder="0"></div>
+        <div class="fg"><label class="flbl">Jiwa yang Berzakat</label><input type="number" class="finp" id="pZakat" min="0" placeholder="0" oninput="autoBeras()"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label class="flbl">Beras (Liter)</label><input type="number" class="finp" id="pBeras" step="0.5" placeholder="Auto: jiwa × 3,5"></div>
+        <div class="fg"><label class="flbl">Uang (Rp)</label><input type="number" class="finp" id="pUang" placeholder="0 (opsional)"></div>
+      </div>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('penerimaan')">Batal</button><button class="btn btn-primary" onclick="saveP()">Simpan</button></div>
+  </div>
+</div>
+
+<!-- ════ MODAL PENDAYAGUNAAN ════ -->
+<div class="mov" id="modal-pendayagunaan">
+  <div class="modal">
+    <div class="mhd"><h2 id="mDTitle">Tambah Mustahiq</h2><button class="mc" onclick="closeModal('pendayagunaan')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <input type="hidden" id="dId">
+      <div class="fg"><label class="flbl">Nama Kepala Keluarga</label><input type="text" class="finp" id="dNama" placeholder="Masukkan nama KK..."></div>
+      <div class="frow">
+        <div class="fg"><label class="flbl">Jumlah Jiwa</label><input type="number" class="finp" id="dJiwa" min="1" placeholder="0"></div>
+        <div class="fg"><label class="flbl">Keterangan</label>
+          <select class="fsel" id="dKet"><option value="">— Umum —</option><option value="JANDA">JANDA</option><option value="DUDA">DUDA</option><option value="LANSIA">LANSIA</option><option value="YATIM">YATIM</option><option value="FAKIR">FAKIR</option><option value="MISKIN">MISKIN</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('pendayagunaan')">Batal</button><button class="btn btn-primary" onclick="saveD()">Simpan</button></div>
+  </div>
+</div>
+
+<!-- ════ MODAL HAPUS ════ -->
+<div class="mov" id="modal-delete">
+  <div class="modal" style="max-width:340px">
+    <div class="mhd"><h2>Konfirmasi Hapus</h2><button class="mc" onclick="closeModal('delete')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb"><p style="font-size:13px;color:var(--mid);line-height:1.6">Yakin ingin menghapus data <strong id="delName"></strong>? Tindakan ini tidak dapat dibatalkan.</p></div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('delete')">Batal</button><button class="btn btn-danger" onclick="doDelete()">Ya, Hapus</button></div>
+  </div>
+</div>
+
+<!-- ════ MODAL TAMBAH TAHUN ════ -->
+<div class="mov" id="modal-year">
+  <div class="modal" style="max-width:340px">
+    <div class="mhd"><h2>Tambah Tahun Zakat Baru</h2><button class="mc" onclick="closeModal('year')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <div class="fg"><label class="flbl">Tahun Hijriah</label><input type="text" class="finp" id="yH" placeholder="Contoh: 1448 H"></div>
+      <div class="fg"><label class="flbl">Tahun Masehi</label><input type="number" class="finp" id="yM" placeholder="Contoh: 2027"></div>
+      <p style="font-size:11px;color:var(--light)">Data tahun sebelumnya tetap tersimpan. Tahun baru dimulai kosong.</p>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('year')">Batal</button><button class="btn btn-primary" onclick="saveYear()">Buat Tahun Baru</button></div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<!-- ════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════ -->
+<script>
+'use strict';
+
+// ── PASSWORDS ──
+let PASSWORDS = JSON.parse(localStorage.getItem('z_passwords') || '{}');
+if (!PASSWORDS.admin)   PASSWORDS.admin   = 'admin1234';
+if (!PASSWORDS.panitia) PASSWORDS.panitia = 'panitia123';
+function savePwds() { localStorage.setItem('z_passwords', JSON.stringify(PASSWORDS)); }
+
+let SHEETS_URL = localStorage.getItem('z_url') || '';
+let role = null; // 'warga' | 'panitia' | 'admin'
+let delTarget = null;
+let adNeedsRole = null; // which role the quick-login should upgrade to
+
+// ── YEARS ──
+let years = JSON.parse(localStorage.getItem('z_years') || '[]');
+if (!years.length) { years = [{id:'2025',hijri:'1446 H',masehi:2025}]; localStorage.setItem('z_years', JSON.stringify(years)); }
+let activeYear = localStorage.getItem('z_activeYear') || years[years.length-1].id;
+
+// ── DB ──
+let DB = JSON.parse(localStorage.getItem('z_db') || '{}');
+let ST = {
+  penerimaan:    {page:1, pp:25, sort:null, dir:1},
+  pendayagunaan: {page:1, pp:25, sort:null, dir:1}
+};
+
+// ─────────────────────────────────
+// INITIAL DATA (from Excel)
+// ─────────────────────────────────
+const INIT_P = [
+  [1,'H. Hafiz HAR',4,4],[2,'Rohmat',4,3],[3,'Azhar',5,4],[4,'Azhari H. Hafiz',4,3],
+  [5,'Sudarmaji',3,3],[6,'Ritam',6,4],[7,'Rustam',2,2],[8,'Hendrik',4,4],
+  [9,'Maulana Hasanuddin',5,4],[10,'Fauziah',4,3],[11,"Mani'ah",5,3],
+  [12,'Taufik Mebel',4,4],[13,'Gondrong',3,1],[14,'Edi',1,1],[15,'Widia',1,1],
+  [16,'Taufik',4,4],[17,'Zizah',2,2],[18,'Pujianto',4,4],[19,'M.Toha',4,2],
+  [20,'Suratman',4,4],[21,'Fadulah',3,3],[22,'Ahmad Zaki',5,5],[23,'Fajri',4,4],
+  [24,'Yayah',4,4],[25,'Ust. Najamudin',2,2],[26,'Arifin',5,5],[27,'Ade',5,5],
+  [28,'Nailin',2,2],[29,'Anwar',3,3],[30,'Ansorulah',2,2],[31,'pak Iqbal',4,4],
+  [32,'Bu Ela',3,3],[33,'Zulkifli',3,3],[34,'Yanti',5,5],[35,'Safii',3,3],
+  [36,'H. Tamrin',3,3],[37,'Samiran',4,4],[38,'Buyung',5,4],[39,'Titin',3,3],
+  [40,'Luthfi',2,2],[41,'Rini',2,2],[42,'Tugirin',3,3],[43,'H. Amrullah',4,2],
+  [44,'Syaifullah',1,1],[45,'Mumun',2,2],[46,'Nuraini',2,2],[47,'Nanang',2,2],
+  [48,'Junaidi',2,2],[49,'Fitriyah Sari',3,2],[50,'Farid Kurniawan',5,2],
+  [51,'Asmat Ribut',2,2],[52,'Wahyudi',3,1],[53,"Sa'diah",2,2],[54,'Ijah',2,2],
+  [55,'Dewi',2,2],[56,'Alfan',3,3],[57,'Mansurudin',3,3],[58,'Robi',4,4],
+  [59,'Hendri',4,4],[60,'Budiono',4,4],[61,'Pakde Warteg',2,2],[62,'Marsih',1,1],
+  [63,'Opik',4,4],[64,'Musrifah',4,4],[65,'Ida',4,4],[66,'Nashori',5,5],
+  [67,'David',2,2],[68,'Cahyo Muharam',1,1],[69,'Gilar',4,4],[70,'Baidowi',6,6],
+  [71,'Arofik',3,3],[72,'Upi',4,4],[73,'Wibowo',3,3],[74,'Arip',3,3],
+  [75,'Ahmad Rizki',3,3],[76,'Aden',3,3],[77,'Denis',4,4],[78,'CH Romli',2,2],
+  [79,'Zainuri',3,2],[80,'Miskio',5,2],[81,'Johar',2,2],[82,'Feri',5,2],
+  [83,'Arifin',3,1],[84,'Junaidi',4,4],[85,'Agus',4,4],[86,'Mailinda',1,1],
+  [87,'Edi Rusli',4,4],[88,'Thomimah',1,1],[89,'Iyan',2,2],[90,'Han',6,6],
+  [91,'Imhani',2,2],[92,'Mardi',2,2],[93,'Wardah',1,1],[94,'Bambang',2,2],
+  [95,'Majid',3,3],[96,'Kartono',3,2],[97,'yayah',1,1],[98,'Memeh',1,1],
+  [99,"Sa'lah",1,1],[100,'Sayyidinaali',5,5],[101,'Zuhdi',2,2],[102,'Helni',3,3],
+  [103,'Zulefendi',4,4],[104,'Yati',2,2],[105,'Dulloh',2,2],[106,'Hikmah',3,3],
+  [107,'Fathullah',2,2],[108,'Asep',3,3],[109,'Fina',2,2],[110,'Kholilah',2,2],
+  [111,'Usman',2,2],[112,'Ali Nurdin',1,1],[113,'Bude Urut',1,1],[114,'H. Musthofa',4,4],
+  [115,'Frayitno',3,3],[116,'Mukhtar',4,4],[117,'Raskam',5,5],[118,'Amirudin',2,2],
+  [119,'Rizki Rahman',3,3],[120,'Said',2,2],[121,'Susanto',4,4],[122,'Yunlis',3,3],
+  [123,'Mamad',4,4],[124,'Abuzar',4,4],[125,'Khodijah',3,3],[126,'Gusrianto',3,3],
+  [127,'Imam Anshori',4,4],[128,'Tatang',5,5],[129,'Maisyaroh',2,2],[130,'Enik',1,1],
+  [131,'Ghozali',3,3],[132,'Dimas',1,1],[133,'Po Yanti',1,1],[134,'Ilham',4,1],
+  [135,'Firda',5,2],[136,'Pauzi',4,1],[137,'Baitullah',3,3],[138,'Nahrowi',1,1],
+  [139,'Steven',3,3],[140,'H. Thoriqudin',4,4],[141,'H. Usman',2,2],[142,'Sukari',2,2],
+  [143,'Madiah',2,2],[144,'Nurhasanah',1,1],[145,'Ita juwita',5,2],[146,'Dana',2,2],
+  [147,'Neneng',5,2],[148,'M. Nuh',5,3],[149,'Ubaidilah',1,1],[150,'Tina',2,1],
+  [151,'Murtani',2,1],[152,'Khoiriyah',4,2],[153,'Mastuni',4,1],[154,'Mahmudin',4,2],
+  [155,'Asep Tamiji',5,2],[156,'Sumi',3,3],[157,'Alimi',1,1],[158,'Ajaz War Efendi',4,4],
+  [159,'M. Sholeh',1,1],[160,'H. Abdullah',3,2],[161,'Ahmad Bin Sanuri',4,4],
+  [162,'Sanuri',1,1],[163,'Ulfah',1,1],[164,'Yantonur',4,4],[165,'Samhadi',4,4],
+  [166,'H. Sudirman',4,4],[167,'Asmani',1,1],[168,'Yani',2,2],[169,'Rina',2,2],
+  [170,'Ismail',4,3],[171,'Irma',2,2],[172,"Sa'leh",1,1],[173,'Maimunah',3,3],
+  [174,'Sony',2,2],[175,'Hidayaullah',4,3],[176,'Joni',3,3],[177,'Lagio',4,4],
+  [178,'A. Anim',3,3],[179,'Rahmat',3,3],[180,'Widiawati',3,3],[181,'Novri Samsu',5,5],
+  [182,'Ika',3,3],[183,'Marwansyah',4,4],[184,'Uda Dino',2,2],[185,'Iqbal Pare-pare',6,6],
+  [186,'Rizki',2,2],[187,'iswadi',2,2],[188,'Andri',1,1],[189,'Eky',2,2],
+  [190,'Po Niman',1,1],[191,'Surani',3,3],[192,'Irwan',4,4],[193,'Ilham',1,1],
+  [194,'Gito',6,6],[195,'M. Mufid',3,3],[196,'Yanih',5,5],[197,'M. Rifal',1,1],
+  [198,'Fikih',1,1],[199,'Nadiah Antasari',1,1],[200,'Hiwalah',4,2],
+  [201,'Arizal',3,1],[202,'Sahabuddin',3,3],[203,'Amrullah',4,1],[204,'Nurlita',3,3],
+  [205,'Husen',4,1],[206,'M. Khadafi',4,2],[207,'Hasmah',1,1],[208,'Hendri Mardiana',1,1]
+];
+const INIT_D = [
+  [1,'Muhammad Khadafi',2,''],[2,'Marsih',2,'JANDA'],[3,'Sahlah',2,''],
+  [4,"Ni'mah",2,'JANDA'],[5,'Uceh',2,''],[6,'Hiwalah',3,'JANDA'],
+  [7,'Helni',3,''],[8,'Yati',2,''],[9,'Hikmah',1,'JANDA'],[10,'Sinta',2,''],
+  [11,'Sahlah Waqino',2,'JANDA'],[12,'Memeh',2,'JANDA'],[13,'Wardah',2,'JANDA'],
+  [14,'Hj. Imhani',2,'JANDA'],[15,'Muthammimah',2,'JANDA'],[16,'Asmanih Mingga',2,'JANDA'],
+  [17,"Sa'diah",2,'JANDA'],[18,'Maisyaroh',2,'JANDA'],[19,'Rini',2,'JANDA'],
+  [20,'Rohmah',3,'JANDA'],[21,'Fauziah',1,''],[22,'Wiwit',2,''],[23,'Nenek',2,'JANDA'],
+  [24,'Hj. Masliah',2,'JANDA'],[25,'Yanti Yanto',2,'JANDA'],[26,'Syahrozah',2,''],
+  [27,'Nunur',2,''],[28,'Ulfiah',2,''],[29,'Yanti Nur Hasan',2,'JANDA'],
+  [30,'Tinah',2,'JANDA'],[31,'Yanti',2,''],[32,"Mani'ah",2,'JANDA'],
+  [33,'Titin',3,'JANDA'],[34,'Fauziah',3,''],[35,'Nurlita',2,''],
+  [36,'Mba Sur',2,''],[37,'Pujianto',3,''],[38,'Yayah',3,''],[39,'Uyung',3,''],
+  [40,'Sapiih',2,''],[41,'Taufik',3,''],[42,'Rahmatullah HAR',3,''],
+  [43,'Ahmad Anim',2,''],[44,'Ismail',3,''],[45,'Hidayatullah',2,''],
+  [46,'Irma',2,''],[47,'Iin',2,''],[48,'Junaidi',2,''],[49,'Asmat Ribut',2,''],
+  [50,'Ibu. Thamrin',2,'JANDA'],[51,'CH Romli',2,''],[52,'Djohar Arifin',2,''],
+  [53,'Yani',3,''],[54,'Bambang',2,''],[55,'Fahri',3,''],[56,'Zuhdi',2,''],
+  [57,"Muni'ah",3,''],[58,'H. Usman',2,''],[59,'Amiruddin',3,''],
+  [60,'Ajat Sudrajat',3,''],[61,'Priyitno',3,''],[62,'Fathullah H. Said',3,''],
+  [63,'Hilda',2,''],[64,'Opik',3,''],[65,'Ali Nurdin',2,''],[66,'Agus Salim',3,''],
+  [67,'A. Fauzih',1,''],[68,'Mamad',3,''],[69,'Nahrawi',1,''],[70,'Husen',2,''],
+  [71,'A. Rijal',2,''],[72,'Amrullah',3,''],[73,'Paryadi',2,''],[74,'Sanuri',1,''],
+  [75,'Samhadi',4,''],[76,'Ahmad bin Sanuri',3,''],[77,'Budiono',2,''],
+  [78,'Yani binti Asmat',2,''],[79,'Lina binti Asmat',2,''],[80,'H. Abdullah',2,''],
+  [81,'Ibu. Ella',2,''],[82,'Aselih',1,''],[83,'Fitriah',2,''],[84,'Edi Rusli',3,''],
+  [85,"Khadijah Sa'diah",3,''],[86,'Teguh',2,''],[87,'Nurmila',2,''],
+  [88,'Dullah',2,''],[89,'Dana',2,''],[90,'Isrofin',2,''],[91,'H. Royani',2,''],
+  [92,'Mala binti Anim',2,''],[93,'Arifin Gino',2,''],[94,'Syaifullah',1,''],
+  [95,'Marwansyah',2,''],[96,'Mastuni',2,''],[97,'Nurhasanah',1,'JANDA'],
+  [98,'Neneng',2,'JANDA'],[99,'M. Nuh',3,''],[100,'Mahmudin',2,''],
+  [101,'Madinah',2,''],[102,'Asep Tarmizi',2,''],[103,'Heri',2,''],
+  [104,'Khairiyah',2,''],[105,'Fina',2,''],[106,'Imam',2,''],[107,'Joni',2,'']
+];
+
+function buildP(yr) {
+  return INIT_P.map(r=>({id:r[0],nama:r[1],jiwa:r[2],zakat:r[3],beras:+(r[3]*3.5).toFixed(1),uang:0,setor:false,tgl_setor:'',tahun:yr}));
+}
+function buildD(yr) {
+  return INIT_D.map(r=>({id:r[0],nama:r[1],jiwa:r[2],keterangan:r[3],tahun:yr}));
+}
+
+// ─────────────────────────────────
+// DB HELPERS
+// ─────────────────────────────────
+function getYDB(yr) { if(!DB[yr])DB[yr]={penerimaan:[],pendayagunaan:[]}; return DB[yr]; }
+function cDB() { return getYDB(activeYear); }
+function saveDB() { localStorage.setItem('z_db', JSON.stringify(DB)); }
+function ensureInit() {
+  const d = getYDB(activeYear);
+  if (!d.penerimaan.length && activeYear==='2025') {
+    d.penerimaan = buildP('2025');
+    d.pendayagunaan = buildD('2025');
+    saveDB();
+  }
+}
+
+// ─────────────────────────────────
+// AUTH
+// ─────────────────────────────────
+function toggleEye(id) {
+  const i=document.getElementById(id);
+  i.type = i.type==='password'?'text':'password';
+}
+function togglePanel(which) {
+  // close the other
+  const other = which==='panitia'?'admin':'panitia';
+  document.getElementById('panel'+cap(other)).classList.remove('show');
+  document.getElementById('arr'+cap(other)).textContent='›';
+  const p=document.getElementById('panel'+cap(which));
+  const show=p.classList.toggle('show');
+  document.getElementById('arr'+cap(which)).textContent=show?'∨':'›';
+  if(show) setTimeout(()=>document.getElementById('pwd'+cap(which)).focus(),80);
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+
+function doLogin(which) {
+  const entered = document.getElementById('pwd'+cap(which)).value;
+  if (entered === PASSWORDS[which]) {
+    document.getElementById('err'+cap(which)).style.display='none';
+    role = which;
+    applyRole();
+  } else {
+    const e=document.getElementById('err'+cap(which));
+    e.style.display='block'; e.style.animation='none';
+    setTimeout(()=>e.style.animation='shake .3s ease',10);
+    document.getElementById('pwd'+cap(which)).value='';
+  }
+}
+function loginAs(r) { role=r; applyRole(); }
+
+function applyRole() {
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.body.classList.remove('role-warga','role-panitia','role-admin');
+  document.body.classList.add('role-'+role);
+
+  const LABELS = {
+    warga:   {icon:'🏠', lbl:'Mode Warga',     cls:'warga',   tb:'🏠 Warga'},
+    panitia: {icon:'👥', lbl:'Panitia Zakat',  cls:'panitia', tb:'👥 Panitia'},
+    admin:   {icon:'👨‍💼', lbl:'Admin',          cls:'admin',   tb:'👨‍💼 Admin'},
+  };
+  const L = LABELS[role];
+  const pill=document.getElementById('rolePill');
+  pill.className='role-pill '+L.cls;
+  pill.innerHTML=`<span>${L.icon}</span><span>${L.lbl}</span>`;
+  const tbr=document.getElementById('tbRole');
+  tbr.className='tb-role '+L.cls;
+  tbr.textContent=L.tb;
+
+  // Setup menu: admin only
+  const isAdmin = role==='admin';
+  document.getElementById('navSetup').style.display   = isAdmin ? 'flex'  : 'none';
+  document.getElementById('navSecAdmin').style.display = isAdmin ? 'block' : 'none';
+  // table th aksi: panitia + admin
+  const canEdit = role==='panitia'||role==='admin';
+  document.querySelectorAll('thead th.panitia-up').forEach(th=>th.style.display=canEdit?'':'none');
+  // Export btn logic: both admin-only and panitia-up export shown
+  // (CSS handles it via body class)
+
+  buildYearSel();
+  ensureInit();
+  refreshAll();
+  if(SHEETS_URL) syncAll();
+}
+
+function logout(){
+  role=null;
+  document.body.classList.remove('role-warga','role-panitia','role-admin');
+  document.getElementById('loginScreen').classList.remove('hidden');
+  // reset panels
+  ['panitia','admin'].forEach(w=>{
+    document.getElementById('panel'+cap(w)).classList.remove('show');
+    document.getElementById('arr'+cap(w)).textContent='›';
+    document.getElementById('pwd'+cap(w)).value='';
+    document.getElementById('err'+cap(w)).style.display='none';
+  });
+}
+
+// Guard: need panitia or higher
+function guardPanitia(fn) {
+  if(role==='panitia'||role==='admin'){fn();return;}
+  adNeedsRole='panitia';
+  showAD('panitia');
+}
+// Guard: need admin only
+function guardAdmin(fn) {
+  if(role==='admin'){fn();return;}
+  adNeedsRole='admin';
+  showAD('admin');
+}
+
+function showAD(needRole) {
+  adNeedsRole = needRole;
+  const isAdmin = needRole==='admin';
+  document.getElementById('adIcon').textContent = isAdmin?'🔒':'🔐';
+  document.getElementById('adTitle').textContent = isAdmin?'Akses Admin Diperlukan':'Akses Panitia Diperlukan';
+  document.getElementById('adMsg').textContent = isAdmin
+    ? 'Menu ini hanya dapat diakses oleh Admin.'
+    : 'Fitur ini membutuhkan akses Panitia atau Admin.';
+  document.getElementById('adPwdLabel').textContent = isAdmin?'Kata Sandi Admin':'Kata Sandi Panitia / Admin';
+  document.getElementById('adLoginBtn').className = isAdmin?'btn btn-gold':'btn btn-purple';
+  document.getElementById('adLoginBtn').style.width='100%';
+  document.getElementById('adLoginBtn').style.justifyContent='center';
+  document.getElementById('accessDenied').classList.add('show');
+  setTimeout(()=>document.getElementById('qPwd').focus(),150);
+}
+function closeAD(){
+  document.getElementById('accessDenied').classList.remove('show');
+  document.getElementById('qPwd').value='';
+  document.getElementById('qErr').style.display='none';
+  adNeedsRole=null;
+}
+function quickLogin(){
+  const v=document.getElementById('qPwd').value;
+  let ok=false;
+  if(adNeedsRole==='admin' && v===PASSWORDS.admin){role='admin';ok=true;}
+  else if(adNeedsRole==='panitia' && (v===PASSWORDS.panitia||v===PASSWORDS.admin)){
+    role = v===PASSWORDS.admin?'admin':'panitia'; ok=true;
+  }
+  if(ok){
+    document.getElementById('qPwd').value='';
+    closeAD(); applyRole();
+    toast(`Berhasil masuk sebagai ${role==='admin'?'Admin':'Panitia'} ✓`,'ok');
+  } else {
+    const e=document.getElementById('qErr');
+    e.style.display='block'; e.style.animation='none';
+    setTimeout(()=>e.style.animation='shake .3s ease',10);
+    document.getElementById('qPwd').value='';
+  }
+}
+
+// ─────────────────────────────────
+// YEAR
+// ─────────────────────────────────
+function buildYearSel(){
+  const s=document.getElementById('yrSel');
+  s.innerHTML=years.map(y=>`<option value="${y.id}" ${y.id===activeYear?'selected':''}>${y.hijri} / ${y.masehi}</option>`).join('');
+  const cur=years.find(y=>y.id===activeYear)||years[0];
+  document.getElementById('yrLblTxt').textContent=`${cur.hijri} / ${cur.masehi}`;
+  document.getElementById('tbYrTxt').textContent=`${cur.hijri} / ${cur.masehi}`;
+  document.getElementById('subP').textContent=`Muzakki — ${cur.hijri} / ${cur.masehi}`;
+  document.getElementById('subD').textContent=`Mustahiq — ${cur.hijri} / ${cur.masehi}`;
+  const yl=document.getElementById('yearsList');
+  if(yl) yl.innerHTML='<strong style="font-size:12px">Tahun tersimpan:</strong> '+years.map(y=>
+    `<span style="display:inline-flex;align-items:center;gap:4px;margin:3px;padding:3px 9px;background:var(--surface);border-radius:6px;border:1px solid var(--border);font-size:12px">${y.hijri} / ${y.masehi}${y.id===activeYear?' <span style="color:var(--jade);font-size:10px">✓</span>':''}</span>`
+  ).join('');
+}
+function onYearChange(){
+  activeYear=document.getElementById('yrSel').value;
+  localStorage.setItem('z_activeYear',activeYear);
+  buildYearSel(); ensureInit(); refreshAll();
+  if(SHEETS_URL) syncAll();
+}
+function openAddYear(){ guardAdmin(()=>document.getElementById('modal-year').classList.add('open')); }
+function saveYear(){
+  guardAdmin(()=>{
+    const h=document.getElementById('yH').value.trim();
+    const m=parseInt(document.getElementById('yM').value);
+    if(!h||!m){toast('Isi tahun Hijriah dan Masehi!','err');return;}
+    const id=String(m);
+    if(years.find(y=>y.id===id)){toast('Tahun sudah ada!','err');return;}
+    years.push({id,hijri:h,masehi:m});
+    localStorage.setItem('z_years',JSON.stringify(years));
+    activeYear=id; localStorage.setItem('z_activeYear',id);
+    ensureInit(); buildYearSel(); refreshAll();
+    closeModal('year');
+    toast(`Tahun ${h} / ${m} ditambahkan ✓`,'ok');
+  });
+}
+
+// ─────────────────────────────────
+// NAV
+// ─────────────────────────────────
+function showPage(name){
+  if(name==='setup'&&role!=='admin'){guardAdmin(()=>showPage('setup'));return;}
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{if(n.getAttribute('onclick')?.includes(`'${name}'`))n.classList.add('active');});
+  const T={dashboard:'Dashboard',penerimaan:'Penerimaan Zakat',pendayagunaan:'Pendayagunaan Zakat',setup:'Pengaturan & Database'};
+  document.getElementById('pgTitle').textContent=T[name]||name;
+  closeSidebar();
+}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');}
+
+// ─────────────────────────────────
+// REFRESH
+// ─────────────────────────────────
+function refreshAll(){
+  renderDashboard(); renderP(); renderD();
+  document.getElementById('bdgP').textContent=cDB().penerimaan.length||'—';
+  document.getElementById('bdgD').textContent=cDB().pendayagunaan.length||'—';
+}
+
+// ─────────────────────────────────
+// DASHBOARD
+// ─────────────────────────────────
+function renderDashboard(){
+  const p=cDB().penerimaan, d=cDB().pendayagunaan;
+  const tJM=p.reduce((s,r)=>s+(+r.jiwa||0),0);
+  const tZ=p.reduce((s,r)=>s+(+r.zakat||0),0);
+  const tB=p.reduce((s,r)=>s+(+r.beras||0),0);
+  const tJD=d.reduce((s,r)=>s+(+r.jiwa||0),0);
+  const janda=d.filter(r=>r.keterangan==='JANDA').length;
+  const setor=p.filter(r=>r.setor).length;
+  const sPct=p.length?Math.round(setor/p.length*100):0;
+  document.getElementById('stMuz').textContent=p.length;
+  document.getElementById('stMust').textContent=d.length;
+  document.getElementById('stBeras').textContent=tB.toLocaleString('id-ID');
+  document.getElementById('stSetor').textContent=`${setor} / ${p.length}`;
+  document.getElementById('stSetorPct').textContent=`${sPct}% sudah menyerahkan`;
+  document.getElementById('stJiwaM').textContent=`Total ${tJM} jiwa · Berzakat: ${tZ} jiwa`;
+  document.getElementById('stJiwaD').textContent=`Total ${tJD} jiwa penerima`;
+  document.getElementById('rekapP').innerHTML=`
+    <div class="irow"><span class="irow-l">KK Muzakki</span><span class="irow-v">${p.length} KK</span></div>
+    <div class="irow"><span class="irow-l">Total Jiwa</span><span class="irow-v">${tJM} Jiwa</span></div>
+    <div class="irow"><span class="irow-l">Jiwa Berzakat</span><span class="irow-v">${tZ} Jiwa</span></div>
+    <div class="irow"><span class="irow-l">Total Beras</span><span class="irow-v">${tB.toLocaleString('id-ID')} Liter</span></div>
+    <div class="irow"><span class="irow-l">Sudah Setor</span><span class="irow-v" style="color:var(--green)">${setor} KK (${sPct}%)</span></div>
+    <div class="irow"><span class="irow-l">Belum Setor</span><span class="irow-v" style="color:var(--orange)">${p.length-setor} KK</span></div>`;
+  document.getElementById('rekapD').innerHTML=`
+    <div class="irow"><span class="irow-l">KK Mustahiq</span><span class="irow-v">${d.length} KK</span></div>
+    <div class="irow"><span class="irow-l">Total Jiwa Penerima</span><span class="irow-v">${tJD} Jiwa</span></div>
+    <div class="irow"><span class="irow-l">KK Janda / Dhuafa</span><span class="irow-v">${janda} KK</span></div>
+    <div class="irow"><span class="irow-l">KK Umum</span><span class="irow-v">${d.length-janda} KK</span></div>
+    <div class="irow"><span class="irow-l">Beras / KK (estimasi)</span><span class="irow-v">${d.length?(tB/d.length).toFixed(1):'—'} Liter</span></div>`;
+  const p1=Math.min(100,Math.round(p.length/250*100));
+  const p2=Math.min(100,p.length?Math.round(d.length/p.length*100):0);
+  setTimeout(()=>{
+    ['pg1','pg2','pg3'].forEach((id,i)=>{
+      const v=[p1,p2,sPct][i];
+      document.getElementById(id).style.width=v+'%';
+      document.getElementById(id+'l').textContent=v+'%';
+    });
+  },100);
+  document.getElementById('bdgP').textContent=p.length||'—';
+  document.getElementById('bdgD').textContent=d.length||'—';
+}
+
+// ─────────────────────────────────
+// TABLE P
+// ─────────────────────────────────
+function renderP(){
+  const s=ST.penerimaan;
+  const q=document.getElementById('srchP').value.toLowerCase();
+  const fb=document.getElementById('fBeras').value;
+  const fs=document.getElementById('fSetor').value;
+  let data=cDB().penerimaan.filter(r=>
+    (!q||r.nama.toLowerCase().includes(q))&&
+    (!fb||(fb==='beras'?+r.beras>0:+r.uang>0))&&
+    (!fs||(fs==='sudah'?r.setor:!r.setor))
+  );
+  if(s.sort) data.sort((a,b)=>{let va=a[s.sort],vb=b[s.sort];if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}return(va<vb?-1:va>vb?1:0)*s.dir;});
+  const tot=data.length,pages=Math.ceil(tot/s.pp)||1;
+  s.page=Math.min(s.page,pages);
+  const sl=data.slice((s.page-1)*s.pp,s.page*s.pp);
+  const canEdit=role==='panitia'||role==='admin';
+  const setor=cDB().penerimaan.filter(r=>r.setor).length;
+  const ttl=cDB().penerimaan.length;
+  const pct=ttl?Math.round(setor/ttl*100):0;
+  document.getElementById('stDoneP').textContent=setor;
+  document.getElementById('stPendP').textContent=ttl-setor;
+  document.getElementById('sbFillP').style.width=pct+'%';
+  document.getElementById('sbPctP').textContent=pct+'%';
+  const tb=document.getElementById('tbP');
+  tb.innerHTML=sl.length?sl.map((r,i)=>`
+    <tr class="${r.setor?'setor-row':''}">
+      <td class="td-no">${(s.page-1)*s.pp+i+1}</td>
+      <td class="td-nm">${esc(r.nama)}</td>
+      <td class="td-n">${r.jiwa}</td>
+      <td class="td-n">${r.zakat}</td>
+      <td style="text-align:center"><span class="badge b-beras">${(+r.beras||0).toLocaleString('id-ID')} L</span></td>
+      <td style="text-align:center">${+r.uang>0?`<span class="badge b-uang">Rp ${(+r.uang).toLocaleString('id-ID')}</span>`:'<span style="color:var(--light);font-size:11px">—</span>'}</td>
+      <td style="text-align:center">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+          <div class="setor-chk ${r.setor?'checked':''} ${canEdit?'clickable':''}"
+               onclick="${canEdit?`toggleSetor(${r.id})`:'showAD(\'panitia\')'}"
+               title="${canEdit?(r.setor?'Klik untuk batal':'Klik untuk tandai sudah setor'):'Panitia/Admin untuk mengubah'}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          ${r.setor&&r.tgl_setor?`<div class="setor-dt">${r.tgl_setor}</div>`:''}
+        </div>
+      </td>
+      ${canEdit?`<td><div class="act-cell">
+        <button class="btn btn-secondary btn-sm" onclick="editP(${r.id})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="delConfirm('penerimaan',${r.id},'${esc(r.nama)}')">🗑️</button>
+      </div></td>`:''}
+    </tr>`).join(''):
+    `<tr><td colspan="${canEdit?8:7}"><div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><h3>Tidak ada data</h3><p>Coba ubah filter</p></div></td></tr>`;
+  document.getElementById('infoP').textContent=`Menampilkan ${Math.min((s.page-1)*s.pp+1,tot)}–${Math.min(s.page*s.pp,tot)} dari ${tot} data`;
+  renderPag('P',pages);
+}
+
+function toggleSetor(id){
+  guardPanitia(()=>{
+    const ydb=cDB(), idx=ydb.penerimaan.findIndex(r=>r.id==id);
+    if(idx<0)return;
+    const r=ydb.penerimaan[idx];
+    r.setor=!r.setor;
+    r.tgl_setor=r.setor?new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'}):'';
+    saveDB(); pushSheets('penerimaan'); renderP(); renderDashboard();
+    toast(r.setor?`✓ ${r.nama} — sudah setor beras`:`${r.nama} — ditandai belum setor`,r.setor?'ok':'warn');
+  });
+}
+
+// ─────────────────────────────────
+// TABLE D
+// ─────────────────────────────────
+function renderD(){
+  const s=ST.pendayagunaan;
+  const q=document.getElementById('srchD').value.toLowerCase();
+  const fk=document.getElementById('fKet').value;
+  let data=cDB().pendayagunaan.filter(r=>(!q||r.nama.toLowerCase().includes(q))&&(!fk||r.keterangan===fk));
+  if(s.sort) data.sort((a,b)=>{let va=a[s.sort],vb=b[s.sort];if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}return(va<vb?-1:va>vb?1:0)*s.dir;});
+  const tot=data.length,pages=Math.ceil(tot/s.pp)||1;
+  s.page=Math.min(s.page,pages);
+  const sl=data.slice((s.page-1)*s.pp,s.page*s.pp);
+  const canEdit=role==='panitia'||role==='admin';
+  const tb=document.getElementById('tbD');
+  tb.innerHTML=sl.length?sl.map((r,i)=>`
+    <tr>
+      <td class="td-no">${(s.page-1)*s.pp+i+1}</td>
+      <td class="td-nm">${esc(r.nama)}</td>
+      <td class="td-n">${r.jiwa}</td>
+      <td>${r.keterangan?`<span class="badge b-janda">${esc(r.keterangan)}</span>`:'<span class="badge b-ok">Umum</span>'}</td>
+      ${canEdit?`<td><div class="act-cell">
+        <button class="btn btn-secondary btn-sm" onclick="editD(${r.id})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="delConfirm('pendayagunaan',${r.id},'${esc(r.nama)}')">🗑️</button>
+      </div></td>`:''}
+    </tr>`).join(''):
+    `<tr><td colspan="${canEdit?5:4}"><div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><h3>Tidak ada data</h3></div></td></tr>`;
+  document.getElementById('infoD').textContent=`Menampilkan ${Math.min((s.page-1)*s.pp+1,tot)}–${Math.min(s.page*s.pp,tot)} dari ${tot} data`;
+  renderPag('D',pages);
+}
+
+function sortT(t,col){const s=ST[t];if(s.sort===col)s.dir*=-1;else{s.sort=col;s.dir=1;}t==='penerimaan'?renderP():renderD();}
+function renderPag(key,pages){
+  const s=ST[key==='P'?'penerimaan':'pendayagunaan'];
+  const el=document.getElementById('pag'+key);
+  if(!el||pages<=1){if(el)el.innerHTML='';return;}
+  let h=`<button class="pg-b" onclick="goP('${key}',${s.page-1})" ${s.page===1?'disabled':''}>‹</button>`;
+  const r=[];for(let i=1;i<=pages;i++){if(i===1||i===pages||Math.abs(i-s.page)<=1)r.push(i);else if(r[r.length-1]!=='…')r.push('…');}
+  r.forEach(p=>{if(p==='…')h+=`<span style="padding:0 2px;color:var(--light)">…</span>`;else h+=`<button class="pg-b ${p===s.page?'active':''}" onclick="goP('${key}',${p})">${p}</button>`;});
+  h+=`<button class="pg-b" onclick="goP('${key}',${s.page+1})" ${s.page===pages?'disabled':''}>›</button>`;
+  el.innerHTML=h;
+}
+function goP(key,p){ST[key==='P'?'penerimaan':'pendayagunaan'].page=p;key==='P'?renderP():renderD();}
+
+// ─────────────────────────────────
+// CRUD
+// ─────────────────────────────────
+function openModalGuard(t){ guardPanitia(()=>document.getElementById('modal-'+t).classList.add('open')); }
+function closeModal(t){
+  document.getElementById('modal-'+t).classList.remove('open');
+  if(t==='penerimaan'){['pId','pNama','pJiwa','pZakat','pBeras','pUang'].forEach(i=>document.getElementById(i).value='');document.getElementById('mPTitle').textContent='Tambah Muzakki';}
+  if(t==='pendayagunaan'){['dId','dNama','dJiwa'].forEach(i=>document.getElementById(i).value='');document.getElementById('dKet').value='';document.getElementById('mDTitle').textContent='Tambah Mustahiq';}
+  if(t==='year'){['yH','yM'].forEach(i=>document.getElementById(i).value='');}
+  if(t==='changepwd'){['cpwd1','cpwd2'].forEach(i=>document.getElementById(i).value='');}
+}
+function autoBeras(){const z=parseInt(document.getElementById('pZakat').value)||0;document.getElementById('pBeras').value=(z*3.5).toFixed(1);}
+
+function saveP(){
+  guardPanitia(()=>{
+    const eid=document.getElementById('pId').value;
+    const nama=document.getElementById('pNama').value.trim();
+    const jiwa=parseInt(document.getElementById('pJiwa').value)||0;
+    const zakat=parseInt(document.getElementById('pZakat').value)||0;
+    const beras=parseFloat(document.getElementById('pBeras').value)||+(zakat*3.5).toFixed(1);
+    const uang=parseInt(document.getElementById('pUang').value)||0;
+    if(!nama){toast('Nama tidak boleh kosong!','err');return;}
+    const ydb=cDB();
+    if(eid){const idx=ydb.penerimaan.findIndex(r=>r.id==eid);if(idx>=0){const o=ydb.penerimaan[idx];ydb.penerimaan[idx]={...o,nama,jiwa,zakat,beras,uang};}toast('Data diperbarui ✓','ok');}
+    else{const nid=Math.max(0,...ydb.penerimaan.map(r=>r.id))+1;ydb.penerimaan.push({id:nid,nama,jiwa,zakat,beras,uang,setor:false,tgl_setor:'',tahun:activeYear});toast('Muzakki ditambahkan ✓','ok');}
+    saveDB();pushSheets('penerimaan');closeModal('penerimaan');renderP();renderDashboard();
+  });
+}
+function editP(id){
+  guardPanitia(()=>{
+    const r=cDB().penerimaan.find(r=>r.id==id);if(!r)return;
+    document.getElementById('pId').value=id;document.getElementById('pNama').value=r.nama;
+    document.getElementById('pJiwa').value=r.jiwa;document.getElementById('pZakat').value=r.zakat;
+    document.getElementById('pBeras').value=r.beras;document.getElementById('pUang').value=r.uang;
+    document.getElementById('mPTitle').textContent='Edit Muzakki';
+    document.getElementById('modal-penerimaan').classList.add('open');
+  });
+}
+function saveD(){
+  guardPanitia(()=>{
+    const eid=document.getElementById('dId').value;
+    const nama=document.getElementById('dNama').value.trim();
+    const jiwa=parseInt(document.getElementById('dJiwa').value)||0;
+    const ket=document.getElementById('dKet').value;
+    if(!nama){toast('Nama tidak boleh kosong!','err');return;}
+    const ydb=cDB();
+    if(eid){const idx=ydb.pendayagunaan.findIndex(r=>r.id==eid);if(idx>=0)ydb.pendayagunaan[idx]={...ydb.pendayagunaan[idx],nama,jiwa,keterangan:ket};toast('Data diperbarui ✓','ok');}
+    else{const nid=Math.max(0,...ydb.pendayagunaan.map(r=>r.id))+1;ydb.pendayagunaan.push({id:nid,nama,jiwa,keterangan:ket,tahun:activeYear});toast('Mustahiq ditambahkan ✓','ok');}
+    saveDB();pushSheets('pendayagunaan');closeModal('pendayagunaan');renderD();renderDashboard();
+  });
+}
+function editD(id){
+  guardPanitia(()=>{
+    const r=cDB().pendayagunaan.find(r=>r.id==id);if(!r)return;
+    document.getElementById('dId').value=id;document.getElementById('dNama').value=r.nama;
+    document.getElementById('dJiwa').value=r.jiwa;document.getElementById('dKet').value=r.keterangan;
+    document.getElementById('mDTitle').textContent='Edit Mustahiq';
+    document.getElementById('modal-pendayagunaan').classList.add('open');
+  });
+}
+function delConfirm(t,id,nama){guardPanitia(()=>{delTarget={t,id};document.getElementById('delName').textContent=nama;document.getElementById('modal-delete').classList.add('open');});}
+function doDelete(){
+  if(!delTarget)return;
+  const{t,id}=delTarget;
+  const ydb=cDB();ydb[t]=ydb[t].filter(r=>r.id!=id);
+  saveDB();pushSheets(t);closeModal('delete');
+  t==='penerimaan'?renderP():renderD();
+  renderDashboard();toast('Data berhasil dihapus','ok');delTarget=null;
+}
+
+// ─────────────────────────────────
+// PASSWORD MANAGEMENT
+// ─────────────────────────────────
+let changingPwdFor = null;
+function openChangePwd(which){
+  guardAdmin(()=>{
+    changingPwdFor=which;
+    document.getElementById('cpwdTitle').textContent = which==='panitia'?'Ubah Kata Sandi Panitia':'Ubah Kata Sandi Admin';
+    document.getElementById('modal-changepwd').classList.add('open');
+  });
+}
+function doChangePwd(){
+  const p1=document.getElementById('cpwd1').value;
+  const p2=document.getElementById('cpwd2').value;
+  if(!p1){toast('Kata sandi tidak boleh kosong!','err');return;}
+  if(p1!==p2){toast('Konfirmasi tidak cocok!','err');return;}
+  if(p1.length<6){toast('Minimal 6 karakter!','err');return;}
+  PASSWORDS[changingPwdFor]=p1;
+  savePwds();
+  closeModal('changepwd');
+  toast(`Kata sandi ${changingPwdFor==='panitia'?'Panitia':'Admin'} berhasil diubah ✓`,'ok');
+}
+function changePwd(who){
+  // Admin ubah kata sandi dirinya sendiri
+  const p1=document.getElementById('aPwd1').value;
+  const p2=document.getElementById('aPwd2').value;
+  if(!p1){toast('Kata sandi tidak boleh kosong!','err');return;}
+  if(p1!==p2){toast('Konfirmasi tidak cocok!','err');return;}
+  if(p1.length<6){toast('Minimal 6 karakter!','err');return;}
+  PASSWORDS.admin=p1; savePwds();
+  document.getElementById('aPwd1').value='';document.getElementById('aPwd2').value='';
+  toast('Kata sandi Admin berhasil diubah ✓','ok');
+}
+
+// ─────────────────────────────────
+// GOOGLE SHEETS
+// ─────────────────────────────────
+function saveUrl(){
+  guardAdmin(()=>{
+    SHEETS_URL=document.getElementById('sheetsUrl').value.trim();
+    localStorage.setItem('z_url',SHEETS_URL);
+    toast('URL tersimpan! Menguji koneksi...','ok');
+    testConn();
+  });
+}
+async function testConn(){
+  if(!SHEETS_URL)return;
+  try{
+    const r=await fetch(`${SHEETS_URL}?action=ping`);
+    const j=await r.json();
+    const el=document.getElementById('urlStatus');
+    if(j.success){el.innerHTML='<span class="sdot ok"></span>Terhubung ke Google Sheets ✓';syncAll();}
+    else el.innerHTML='<span class="sdot err"></span>Koneksi gagal: '+j.error;
+  }catch(e){const el=document.getElementById('urlStatus');if(el)el.innerHTML='<span class="sdot err"></span>Gagal: '+e.message;}
+}
+// sheetName per tahun: PENERIMAAN_2025, PENDAYAGUNAAN_2025, dst.
+function sheetName(t,yr){ return (t==='penerimaan'?'PENERIMAAN':'PENDAYAGUNAAN')+'_'+yr; }
+
+async function syncAll(){if(!SHEETS_URL)return;await syncSheets('penerimaan');await syncSheets('pendayagunaan');}
+async function syncSheets(t){
+  if(!SHEETS_URL){toast('URL belum diatur','err');return;}
+  try{
+    const sn=sheetName(t,activeYear);
+    const r=await fetch(`${SHEETS_URL}?action=get&sheet=${encodeURIComponent(sn)}`);
+    const j=await r.json();
+    if(j.success&&j.data&&j.data.length){
+      const ydb=getYDB(activeYear);
+      ydb[t]=j.data.map(row=>({...row,setor:row.setor==='true'||row.setor===true,jiwa:+row.jiwa||0,zakat:+(row.zakat||0),beras:+(row.beras||0),uang:+(row.uang||0)}));
+      saveDB();refreshAll();toast('Data berhasil disinkronkan ✓','ok');
+    }else toast('Sync: belum ada data baru','');
+  }catch(e){toast('Gagal sync: '+e.message,'err');}
+}
+async function pushSheets(t){
+  if(!SHEETS_URL)return;
+  try{await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'set',sheet:sheetName(t,activeYear),data:cDB()[t]})});}catch(e){}
+}
+function importData(){
+  guardAdmin(async()=>{
+    if(!SHEETS_URL){toast('Simpan URL Google Sheets dulu!','err');return;}
+    if(!confirm('Import data awal Excel ke Google Sheets?\nData tahun ini akan ditimpa!'))return;
+    const ydb=getYDB(activeYear);
+    ydb.penerimaan=buildP(activeYear);ydb.pendayagunaan=buildD(activeYear);
+    saveDB();await pushSheets('penerimaan');await pushSheets('pendayagunaan');
+    refreshAll();toast('Data awal berhasil diimpor ✓','ok');
+  });
+}
+
+// ─────────────────────────────────
+// EXPORT (panitia + admin)
+// ─────────────────────────────────
+function exportData(){
+  guardPanitia(()=>{
+    const act=document.querySelector('.page.active').id;
+    const yr=years.find(y=>y.id===activeYear);
+    const yl=yr?`${yr.hijri}_${yr.masehi}`:activeYear;
+    let csv='',fn='';
+    if(act==='page-penerimaan'){
+      csv=`Penerimaan Zakat Fitrah ${yl}\nNo,Nama KK,Jumlah Jiwa,Jiwa Zakat,Beras (Liter),Uang (Rp),Sudah Setor,Tanggal Setor\n`;
+      cDB().penerimaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},${r.zakat},${r.beras},${r.uang||0},${r.setor?'Ya':'Belum'},"${r.tgl_setor||''}"\n`);
+      fn=`Penerimaan_${yl}.csv`;
+    }else if(act==='page-pendayagunaan'){
+      csv=`Pendayagunaan Zakat Fitrah ${yl}\nNo,Nama KK,Jumlah Jiwa,Keterangan\n`;
+      cDB().pendayagunaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},"${r.keterangan}"\n`);
+      fn=`Pendayagunaan_${yl}.csv`;
+    }else{
+      csv=`REKAP ZAKAT FITRAH ${yl}\n\nPENERIMAAAN\nNo,Nama,Jiwa,Zakat,Beras,Uang,Setor\n`;
+      cDB().penerimaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},${r.zakat},${r.beras},${r.uang||0},${r.setor?'Ya':'Belum'}\n`);
+      csv+=`\nPENDAYAGUNAAN\nNo,Nama,Jiwa,Keterangan\n`;
+      cDB().pendayagunaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},"${r.keterangan}"\n`);
+      fn=`Rekap_Zakat_${yl}.csv`;
+    }
+    const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download=fn;a.click();URL.revokeObjectURL(url);
+    toast('Export berhasil ✓','ok');
+  });
+}
+
+// ─────────────────────────────────
+// APPS SCRIPT CODE
+// ─────────────────────────────────
+function renderCode(){
+  document.getElementById('codeBox').textContent=
+`/* ============================================================
+   GOOGLE APPS SCRIPT — Sistem Zakat Fitrah Multi Tahun
+   Masjid RT 010 RW 04 — Al Falah & Nurussholihah
+
+   Sheet per tahun:
+     PENERIMAAN_2025 / PENDAYAGUNAAN_2025
+     PENERIMAAN_2026 / PENDAYAGUNAAN_2026
+     dst. (otomatis dibuat saat data pertama dikirim)
+   ============================================================ */
+
+const SS = SpreadsheetApp.getActiveSpreadsheet();
+
+/* Helper: ambil atau buat sheet berdasarkan nama */
+function getOrCreate(name) {
+  return SS.getSheetByName(name) || SS.insertSheet(name);
+}
+
+/* ── GET ── ambil semua baris dari sheet tertentu */
+function doGet(e) {
+  try {
+    const p = e.parameter;
+
+    if (p.action === 'ping')
+      return json({ success: true, msg: 'Connected' });
+
+    // sheet sudah berisi nama lengkap, mis. PENERIMAAN_2025
+    const ws = getOrCreate(p.sheet);
+    const vals = ws.getDataRange().getValues();
+    if (vals.length < 2) return json({ success: true, data: [] });
+
+    const hdr = vals[0];
+    const rows = vals.slice(1)
+      .filter(r => r[0] !== '' && r[0] !== null)
+      .map(r => {
+        const o = {};
+        hdr.forEach((h, i) => o[h] = (r[i] === null ? '' : r[i]));
+        return o;
+      });
+
+    return json({ success: true, data: rows });
+  } catch (err) {
+    return json({ success: false, error: err.message });
+  }
+}
+
+/* ── POST ── tulis ulang seluruh sheet (satu sheet = satu tahun) */
+function doPost(e) {
+  try {
+    const body = JSON.parse(e.postData.contents);
+    const { action, sheet, data } = body;
+    // sheet = nama lengkap mis. PENERIMAAN_2025
+
+    if (action === 'set') {
+      const ws = getOrCreate(sheet);
+      ws.clearContents();
+
+      if (data && data.length) {
+        const headers = Object.keys(data[0]);
+        ws.appendRow(headers);
+        data.forEach(row => ws.appendRow(headers.map(h => row[h] ?? '')));
+      }
+      return json({ success: true });
+    }
+
+    return json({ success: false, error: 'Unknown action' });
+  } catch (err) {
+    return json({ success: false, error: err.message });
+  }
+}
+
+function json(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}`;
+}
+
+function copyCode(){
+  navigator.clipboard.writeText(document.getElementById('codeBox').textContent)
+    .then(()=>toast('Kode Apps Script disalin ✓','ok'));
+}
+
+// ─────────────────────────────────
+// TOAST
+// ─────────────────────────────────
+function toast(msg,type=''){
+  const c=document.getElementById('toasts');
+  const el=document.createElement('div');
+  el.className='toast '+(type==='ok'?'ok':type==='err'?'err':type==='warn'?'warn':type==='info'?'info':'');
+  el.innerHTML=`<span>${type==='ok'?'✓':type==='err'?'✕':type==='warn'?'⚠':type==='info'?'ℹ':'·'}</span> ${msg}`;
+  c.appendChild(el);
+  setTimeout(()=>{el.style.opacity='0';el.style.transform='translateX(36px)';el.style.transition='all .3s';setTimeout(()=>el.remove(),300);},3200);
+}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ─────────────────────────────────
+// EVENTS
+// ─────────────────────────────────
+document.querySelectorAll('.mov').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o){const id=o.id.replace('modal-','');closeModal(id);}});
+});
+document.getElementById('accessDenied').addEventListener('click',e=>{if(e.target===e.currentTarget)closeAD();});
+
+// ─────────────────────────────────
+// INIT
+// ─────────────────────────────────
+renderCode();
+document.getElementById('sheetsUrl').value=SHEETS_URL;
+</script>
+</body>
+</html>
