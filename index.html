@@ -794,7 +794,7 @@ let adNeedsRole = null; // which role the quick-login should upgrade to
 
 // ── YEARS ──
 let years = JSON.parse(localStorage.getItem('z_years') || '[]');
-if (!years.length) { years = [{id:'2025',hijri:'1446 H',masehi:2025}]; localStorage.setItem('z_years', JSON.stringify(years)); }
+if (!years.length) { years = [{id:'2026',hijri:'1447 H',masehi:2026}]; localStorage.setItem('z_years', JSON.stringify(years)); }
 let activeYear = localStorage.getItem('z_activeYear') || years[years.length-1].id;
 
 // ── DB ──
@@ -912,9 +912,9 @@ function cDB() { return getYDB(activeYear); }
 function saveDB() { localStorage.setItem('z_db', JSON.stringify(DB)); }
 function ensureInit() {
   const d = getYDB(activeYear);
-  if (!d.penerimaan.length && activeYear==='2025') {
-    d.penerimaan = buildP('2025');
-    d.pendayagunaan = buildD('2025');
+  if (!d.penerimaan.length && activeYear==='2026') {
+    d.penerimaan = buildP('2026');
+    d.pendayagunaan = buildD('2026');
     saveDB();
   }
 }
@@ -1396,7 +1396,7 @@ async function testConn(){
     else el.innerHTML='<span class="sdot err"></span>Koneksi gagal: '+j.error;
   }catch(e){const el=document.getElementById('urlStatus');if(el)el.innerHTML='<span class="sdot err"></span>Gagal: '+e.message;}
 }
-// sheetName per tahun: PENERIMAAN_2025, PENDAYAGUNAAN_2025, dst.
+// sheetName per tahun: PENERIMAAN_2026, PENDAYAGUNAAN_2026, dst.
 function sheetName(t,yr){ return (t==='penerimaan'?'PENERIMAAN':'PENDAYAGUNAAN')+'_'+yr; }
 
 async function syncAll(){if(!SHEETS_URL)return;await syncSheets('penerimaan');await syncSheets('pendayagunaan');}
@@ -1466,11 +1466,11 @@ function renderCode(){
   document.getElementById('codeBox').textContent=
 `/* ============================================================
    GOOGLE APPS SCRIPT — Sistem Zakat Fitrah Multi Tahun
-   Masjid RT 010 RW 04 — Al Falah & Nurussholihah
+   Panitia Zakat RT 010 RW 04 — Sukabumi Selatan Jakarta Barat
 
    Sheet per tahun:
-     PENERIMAAN_2025 / PENDAYAGUNAAN_2025
      PENERIMAAN_2026 / PENDAYAGUNAAN_2026
+     PENERIMAAN_2027 / PENDAYAGUNAAN_2027
      dst. (otomatis dibuat saat data pertama dikirim)
    ============================================================ */
 
@@ -1489,7 +1489,7 @@ function doGet(e) {
     if (p.action === 'ping')
       return json({ success: true, msg: 'Connected' });
 
-    // sheet sudah berisi nama lengkap, mis. PENERIMAAN_2025
+    // sheet sudah berisi nama lengkap, mis. PENERIMAAN_2026
     const ws = getOrCreate(p.sheet);
     const vals = ws.getDataRange().getValues();
     if (vals.length < 2) return json({ success: true, data: [] });
@@ -1514,7 +1514,7 @@ function doPost(e) {
   try {
     const body = JSON.parse(e.postData.contents);
     const { action, sheet, data } = body;
-    // sheet = nama lengkap mis. PENERIMAAN_2025
+    // sheet = nama lengkap mis. PENERIMAAN_2026
 
     if (action === 'set') {
       const ws = getOrCreate(sheet);
@@ -1576,3 +1576,4 @@ document.getElementById('sheetsUrl').value=SHEETS_URL;
 </body>
 
 </html>
+
