@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panitia Zakat RT.010 RW.04</title>
+<title>Sistem Data Zakat Warga RT.010 RW.04</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -207,11 +207,13 @@ body.role-panitia .panitia-up.flex-col,body.role-admin .panitia-up.flex-col{disp
 .sc.y::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .sc.b::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
 .sc.o::before{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.sc.p::before{background:linear-gradient(90deg,var(--purple),var(--purple-light))}
 .sico{width:37px;height:37px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
 .sico.g{background:rgba(64,145,108,.12);color:var(--jade)}
 .sico.y{background:rgba(201,168,76,.12);color:var(--gold)}
 .sico.b{background:rgba(59,130,246,.1);color:#3b82f6}
 .sico.o{background:rgba(217,119,6,.1);color:var(--orange)}
+.sico.p{background:rgba(124,58,237,.1);color:var(--purple)}
 .sico svg{width:18px;height:18px}
 .sv{font-size:25px;font-weight:800;color:var(--dark);line-height:1}
 .sl{font-size:11px;color:var(--light);margin-top:3px;font-weight:500}
@@ -270,7 +272,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
 .td-nm{font-weight:600}
 .td-n{text-align:center;font-weight:700;color:var(--emerald)}
 .badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:600}
-.b-janda{background:rgba(239,68,68,.1);color:var(--red)}
+.b-janda{background:rgba(202, 6, 202, 0.1);color:var(--red)}
 .b-ok{background:rgba(64,145,108,.1);color:var(--jade)}
 .b-beras{background:rgba(234,179,8,.1);color:#92620a}
 .b-uang{background:rgba(59,130,246,.1);color:#1d4ed8}
@@ -394,8 +396,8 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
   <div class="lw">
     <div class="lh">
       <span class="l-ar">بَيْتُ الزَّكَاة</span>
-      <div class="l-title">Panitia Zakat Fitrah</div>
-      <div class="l-sub" style="color: #f4f9f6;">RT 010 RW 04<br>Kel. Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</div>
+      <div class="l-title">Panitia Zakat</div>
+      <div class="l-sub" style="color: white;">RT 010 RW 04<br>Kel. Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</div>
     </div>
 
     <div class="role-grid">
@@ -438,7 +440,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
         <button class="btn-panel-go admin-go" onclick="doLogin('admin')">Masuk sebagai Admin</button>
       </div>
     </div>
-    <div class="l-footer">Badan Amil Zakat RW.03 &amp; RW.04 — Sistem Multi-Tahun</div>
+    <div class="l-footer">Panitia Zakat Fitrah RT.010 RW.04 — Sistem Multi-Tahun</div>
   </div>
 </div>
 
@@ -464,8 +466,8 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <span class="sl-ar">بَيْتُ الزَّكَاة</span>
-    <div class="sl-name" style="color: #fff;">Panitia Zakat</div>
-    <div class="sl-sub" style="color: #f7faf8;">RT 010 / RW 04 — Kel. Sukabumi Selatan</div>
+    <div class="sl-name" style="color: aqua;">Panitia Zakat</div>
+    <div class="sl-sub" style="color: aqua;">RT 010 RW 04 — Kel. Sukabumi Selatan</div>
   </div>
   <div id="rolePill" class="role-pill warga"><span>🏠</span><span id="roleLabel">Mode Warga</span></div>
   <div class="yr-sw">
@@ -513,7 +515,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
       <button class="hamburger" onclick="toggleSidebar()">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <div><div class="pg-title" id="pgTitle">Dashboard</div><div class="pg-sub">Badan Amil Zakat RW.03 &amp; RW.04</div></div>
+      <div><div class="pg-title" id="pgTitle">Dashboard</div><div class="pg-sub">Panitia Zakat RT.010 RW.04</div></div>
     </div>
     <div class="tb-r">
       <div class="tb-year"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span id="tbYrTxt">—</span></div>
@@ -535,16 +537,17 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
   <!-- ── DASHBOARD ── -->
   <div class="page active" id="page-dashboard">
     <div class="banner">
-      <div class="b-ar">بَيْتُ الزَّكَاة</div>
+      <div class="b-ar">Panitia Zakat</div>
       <div class="b-txt">
-        <h2>Panitia Zakat Fitrah RT.010</h2>
-        <p style="color: #edf7f1;">Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</p>
+        <h2>RT.010 RW,04</h2>
+        <p style="color: white;">Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</p>
       </div>
     </div>
     <div class="stats-grid">
       <div class="sc g"><div class="sico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sv" id="stMuz">—</div><div class="sl">Muzakki (KK Pemberi)</div><div class="sd" id="stJiwaM">—</div></div>
       <div class="sc y"><div class="sico y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="sv" id="stMust">—</div><div class="sl">Mustahiq (KK Penerima)</div><div class="sd" id="stJiwaD">—</div></div>
       <div class="sc b"><div class="sico b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><div class="sv" id="stBeras">—</div><div class="sl">Total Beras (Liter)</div><div class="sd">@ 3,5 liter / jiwa</div></div>
+      <div class="sc p"><div class="sico p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="sv" id="stUang">—</div><div class="sl">Total Uang (Rp)</div><div class="sd" id="stUangKK">—</div></div>
       <div class="sc o"><div class="sico o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="sv" id="stSetor">—</div><div class="sl">Sudah Setor ke Musholla</div><div class="sd" id="stSetorPct">—</div></div>
     </div>
     <div class="info-grid">
@@ -556,7 +559,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
       <div class="prog-wrap">
         <div class="pr"><div class="pr-lbl"><span>Muzakki Terdaftar</span><span id="pg1l">—</span></div><div class="prog-bar"><div class="pf g" id="pg1" style="width:0%"></div></div></div>
         <div class="pr"><div class="pr-lbl"><span>Cakupan Mustahiq</span><span id="pg2l">—</span></div><div class="prog-bar"><div class="pf y" id="pg2" style="width:0%"></div></div></div>
-        <div class="pr"><div class="pr-lbl"><span>Progress Setor Beras ke Musholla</span><span id="pg3l">—</span></div><div class="prog-bar"><div class="pf o" id="pg3" style="width:0%"></div></div></div>
+        <div class="pr"><div class="pr-lbl"><span>Progress Setor Beras ke Panitia Zakat</span><span id="pg3l">—</span></div><div class="prog-bar"><div class="pf o" id="pg3" style="width:0%"></div></div></div>
       </div>
     </div>
   </div>
@@ -700,6 +703,34 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
         <button class="btn btn-secondary" style="margin-top:9px" onclick="changePwd('admin')">Ubah Kata Sandi Admin</button>
       </div>
 
+      <!-- Hapus Data -->
+      <div class="step-card" style="border-color:var(--red-b);background:var(--red-bg)">
+        <div class="sth">
+          <div class="snum" style="background:linear-gradient(135deg,var(--red),#991b1b)">6</div>
+          <div><h3 style="color:var(--red)">⚠️ Zona Bahaya — Hapus Data</h3>
+            <p style="color:#7f1d1d">Tindakan di bawah ini <strong>tidak dapat dibatalkan</strong>. Pastikan sudah backup/export data sebelum menghapus.</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <!-- Hapus semua data tahun aktif -->
+          <div style="background:#fff;border:1px solid var(--red-b);border-radius:9px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--dark)">🗑️ Hapus Semua Data Tahun Ini</div>
+              <div style="font-size:11px;color:var(--mid);margin-top:2px">Hapus seluruh data Penerimaan &amp; Pendayagunaan tahun aktif (<span id="delYearLabel">—</span>). Tahun lain tetap aman.</div>
+            </div>
+            <button class="btn btn-danger" onclick="confirmDeleteAllData()">Hapus Semua Data</button>
+          </div>
+          <!-- Hapus tahun -->
+          <div style="background:#fff;border:1px solid var(--red-b);border-radius:9px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--dark)">🗂️ Hapus Tahun</div>
+              <div style="font-size:11px;color:var(--mid);margin-top:2px">Hapus satu tahun beserta seluruh datanya dari sistem dan Google Sheets.</div>
+            </div>
+            <button class="btn btn-danger" onclick="openDeleteYear()">Pilih &amp; Hapus Tahun</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div><!-- /main -->
@@ -801,6 +832,37 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
       <button class="btn btn-secondary" onclick="skipUrlSetup()">Lewati (data lokal)</button>
       <button class="btn btn-primary" onclick="saveUrlSetup()">Hubungkan &amp; Ambil Data</button>
     </div>
+  </div>
+</div>
+
+<!-- ════ MODAL HAPUS SEMUA DATA ════ -->
+<div class="mov" id="modal-deleteall">
+  <div class="modal" style="max-width:380px">
+    <div class="mhd"><h2 style="color:var(--red)">⚠️ Hapus Semua Data</h2><button class="mc" onclick="closeModal('deleteall')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <div style="background:var(--red-bg);border:1px solid var(--red-b);border-radius:8px;padding:11px;margin-bottom:13px;font-size:12px;color:#7f1d1d;line-height:1.6">
+        ⚠️ Anda akan menghapus <strong>seluruh data Penerimaan dan Pendayagunaan</strong> tahun <strong id="daLabel">—</strong>.<br>Data di Google Sheets juga akan terhapus. <strong>Tindakan ini tidak bisa dibatalkan.</strong>
+      </div>
+      <div class="fg"><label class="flbl">Ketik <strong>HAPUS</strong> untuk konfirmasi</label><input type="text" class="finp" id="daConfirm" placeholder="Ketik HAPUS" oninput="this.value=this.value.toUpperCase()"></div>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('deleteall')">Batal</button><button class="btn btn-danger" onclick="doDeleteAllData()">Hapus Semua Data</button></div>
+  </div>
+</div>
+
+<!-- ════ MODAL HAPUS TAHUN ════ -->
+<div class="mov" id="modal-deleteyear">
+  <div class="modal" style="max-width:380px">
+    <div class="mhd"><h2 style="color:var(--red)">🗂️ Hapus Tahun</h2><button class="mc" onclick="closeModal('deleteyear')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mb">
+      <div class="fg"><label class="flbl">Pilih Tahun yang Akan Dihapus</label>
+        <select class="fsel" id="delYearSel"></select>
+      </div>
+      <div style="background:var(--red-bg);border:1px solid var(--red-b);border-radius:8px;padding:11px;margin-bottom:13px;font-size:12px;color:#7f1d1d;line-height:1.6">
+        ⚠️ Seluruh data tahun yang dipilih akan dihapus permanen dari sistem lokal dan Google Sheets.
+      </div>
+      <div class="fg"><label class="flbl">Ketik <strong>HAPUS</strong> untuk konfirmasi</label><input type="text" class="finp" id="dyConfirm" placeholder="Ketik HAPUS" oninput="this.value=this.value.toUpperCase()"></div>
+    </div>
+    <div class="mft"><button class="btn btn-secondary" onclick="closeModal('deleteyear')">Batal</button><button class="btn btn-danger" onclick="doDeleteYear()">Hapus Tahun Ini</button></div>
   </div>
 </div>
 
@@ -1137,6 +1199,84 @@ function saveYear(){
 }
 
 // ─────────────────────────────────
+// HAPUS DATA & TAHUN (Admin only)
+// ─────────────────────────────────
+function confirmDeleteAllData(){
+  guardAdmin(()=>{
+    const yr=years.find(y=>y.id===activeYear);
+    const lbl=yr?`${yr.hijri} / ${yr.masehi}`:activeYear;
+    document.getElementById('daLabel').textContent=lbl;
+    document.getElementById('daConfirm').value='';
+    // update label on setup page too
+    const dl=document.getElementById('delYearLabel');
+    if(dl) dl.textContent=lbl;
+    document.getElementById('modal-deleteall').classList.add('open');
+  });
+}
+async function doDeleteAllData(){
+  if(document.getElementById('daConfirm').value.trim()!=='HAPUS'){
+    toast('Ketik HAPUS untuk konfirmasi!','err'); return;
+  }
+  guardAdmin(async()=>{
+    // Clear local DB for active year
+    DB[activeYear]={penerimaan:[],pendayagunaan:[]};
+    saveDB();
+    // Clear Google Sheets sheets for this year
+    if(SHEETS_URL){
+      showLoading('Menghapus data dari Google Sheets...');
+      try{
+        await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'set',sheet:sheetName('penerimaan',activeYear),data:[]})});
+        await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'set',sheet:sheetName('pendayagunaan',activeYear),data:[]})});
+      }catch(e){}
+      hideLoading();
+    }
+    closeModal('deleteall');
+    refreshAll();
+    toast('Semua data tahun ini berhasil dihapus','ok');
+  });
+}
+
+function openDeleteYear(){
+  guardAdmin(()=>{
+    const sel=document.getElementById('delYearSel');
+    sel.innerHTML=years.map(y=>`<option value="${y.id}">${y.hijri} / ${y.masehi}</option>`).join('');
+    document.getElementById('dyConfirm').value='';
+    document.getElementById('modal-deleteyear').classList.add('open');
+  });
+}
+async function doDeleteYear(){
+  if(document.getElementById('dyConfirm').value.trim()!=='HAPUS'){
+    toast('Ketik HAPUS untuk konfirmasi!','err'); return;
+  }
+  guardAdmin(async()=>{
+    const delId=document.getElementById('delYearSel').value;
+    if(years.length<=1){toast('Tidak bisa menghapus tahun terakhir!','err');return;}
+    // Delete from local
+    delete DB[delId];
+    years=years.filter(y=>y.id!==delId);
+    localStorage.setItem('z_years',JSON.stringify(years));
+    saveDB();
+    // If active year deleted, switch to last remaining
+    if(activeYear===delId){
+      activeYear=years[years.length-1].id;
+      localStorage.setItem('z_activeYear',activeYear);
+    }
+    // Delete from Google Sheets (clear sheets)
+    if(SHEETS_URL){
+      showLoading('Menghapus data dari Google Sheets...');
+      try{
+        await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'deleteSheet',sheet:sheetName('penerimaan',delId)})});
+        await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'deleteSheet',sheet:sheetName('pendayagunaan',delId)})});
+      }catch(e){}
+      hideLoading();
+    }
+    closeModal('deleteyear');
+    buildYearSel(); ensureInit(); refreshAll();
+    toast('Tahun berhasil dihapus ✓','ok');
+  });
+}
+
+// ─────────────────────────────────
 // NAV
 // ─────────────────────────────────
 function showPage(name){
@@ -1169,6 +1309,9 @@ function renderDashboard(){
   const tJM=p.reduce((s,r)=>s+(+r.jiwa||0),0);
   const tZ=p.reduce((s,r)=>s+(+r.zakat||0),0);
   const tB=p.reduce((s,r)=>s+(+r.beras||0),0);
+  const tU=p.reduce((s,r)=>s+(+r.uang||0),0);
+  const kkUang=p.filter(r=>+r.uang>0).length;
+  const kkBeras=p.filter(r=>+r.beras>0&&!(+r.uang>0)).length;
   const tJD=d.reduce((s,r)=>s+(+r.jiwa||0),0);
   const janda=d.filter(r=>r.keterangan==='JANDA').length;
   const setor=p.filter(r=>r.setor).length;
@@ -1176,6 +1319,8 @@ function renderDashboard(){
   document.getElementById('stMuz').textContent=p.length;
   document.getElementById('stMust').textContent=d.length;
   document.getElementById('stBeras').textContent=tB.toLocaleString('id-ID');
+  document.getElementById('stUang').textContent='Rp '+tU.toLocaleString('id-ID');
+  document.getElementById('stUangKK').textContent=`${kkUang} KK bayar uang · ${kkBeras} KK bayar beras`;
   document.getElementById('stSetor').textContent=`${setor} / ${p.length}`;
   document.getElementById('stSetorPct').textContent=`${sPct}% sudah menyerahkan`;
   document.getElementById('stJiwaM').textContent=`Total ${tJM} jiwa · Berzakat: ${tZ} jiwa`;
@@ -1184,7 +1329,8 @@ function renderDashboard(){
     <div class="irow"><span class="irow-l">KK Muzakki</span><span class="irow-v">${p.length} KK</span></div>
     <div class="irow"><span class="irow-l">Total Jiwa</span><span class="irow-v">${tJM} Jiwa</span></div>
     <div class="irow"><span class="irow-l">Jiwa Berzakat</span><span class="irow-v">${tZ} Jiwa</span></div>
-    <div class="irow"><span class="irow-l">Total Beras</span><span class="irow-v">${tB.toLocaleString('id-ID')} Liter</span></div>
+    <div class="irow"><span class="irow-l">Bayar Beras</span><span class="irow-v">${kkBeras} KK · ${tB.toLocaleString('id-ID')} Liter</span></div>
+    <div class="irow"><span class="irow-l">Bayar Uang</span><span class="irow-v" style="color:var(--purple)">${kkUang} KK · Rp ${tU.toLocaleString('id-ID')}</span></div>
     <div class="irow"><span class="irow-l">Sudah Setor</span><span class="irow-v" style="color:var(--green)">${setor} KK (${sPct}%)</span></div>
     <div class="irow"><span class="irow-l">Belum Setor</span><span class="irow-v" style="color:var(--orange)">${p.length-setor} KK</span></div>`;
   document.getElementById('rekapD').innerHTML=`
@@ -1532,7 +1678,7 @@ function exportData(){
     }
     const yr   = years.find(y=>y.id===activeYear);
     const yrLabel = yr ? `${yr.hijri} / ${yr.masehi}` : activeYear;
-    const fn   = `Panitia_Zakat_RT.010_${activeYear}.xlsx`;
+    const fn   = `Data_Zakat_Fitrah_${activeYear}.xlsx`;
     const act  = document.querySelector('.page.active').id;
     const p    = cDB().penerimaan;
     const d    = cDB().pendayagunaan;
@@ -1604,8 +1750,8 @@ function exportData(){
     wb.creator = 'Sistem Zakat Fitrah RT010 RW04';
     wb.created = new Date();
 
-    const orgName  = 'Panitia Zakat RT.010 RW.04';
-    const orgSub   = `Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat | Tahun: ${yrLabel}`;
+    const orgName  = 'Panitia Zakat RT.010 RW.04 — Badan Amil Zakat RW.03 & RW.04';
+    const orgSub   = `Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat  |  Tahun: ${yrLabel}`;
 
     // ─── Determine which sheets to build ───
     const buildP   = (act !== 'page-pendayagunaan');
@@ -1856,6 +2002,13 @@ function doPost(e) {
         ws.appendRow(headers);
         data.forEach(row => ws.appendRow(headers.map(h => row[h] ?? '')));
       }
+      return json({ success: true });
+    }
+
+    /* DELETE SHEET: hapus sheet satu tahun */
+    if (action === 'deleteSheet') {
+      const ws = SS.getSheetByName(sheet);
+      if (ws && SS.getSheets().length > 1) SS.deleteSheet(ws);
       return json({ success: true });
     }
 
