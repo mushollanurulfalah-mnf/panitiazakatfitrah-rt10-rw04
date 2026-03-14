@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Zakat Fitrah Warga RT.010</title>
+<title>Panitia Zakat RT.010 RW.04</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -385,6 +385,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
 @media print{.sidebar,.topbar,.tbar .btn,.act-cell,.pagination,#loginScreen{display:none!important}
   .main{margin-left:0}.page{display:block!important;padding:0}body::before{display:none}}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
 </head>
 <body>
 
@@ -394,7 +395,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
     <div class="lh">
       <span class="l-ar">بَيْتُ الزَّكَاة</span>
       <div class="l-title">Panitia Zakat Fitrah</div>
-      <div class="l-sub" style="color:white">RT 010 RW 04 - Sukabumi Selatan</div>
+      <div class="l-sub" style="color: #f4f9f6;">RT 010 RW 04<br>Kel. Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</div>
     </div>
 
     <div class="role-grid">
@@ -437,7 +438,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
         <button class="btn-panel-go admin-go" onclick="doLogin('admin')">Masuk sebagai Admin</button>
       </div>
     </div>
-    <div class="l-footer">Panitia Zakat Fitrah RT.010 RW.04 — Sistem Multi-Tahun</div>
+    <div class="l-footer">Badan Amil Zakat RW.03 &amp; RW.04 — Sistem Multi-Tahun</div>
   </div>
 </div>
 
@@ -463,8 +464,8 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <span class="sl-ar">بَيْتُ الزَّكَاة</span>
-    <div class="sl-name" style="color: #f5f3ff;">Panitia Zakat Fitrah</div>
-    <div class="sl-sub" style="color: #fffbeb;">RT 010 RW 04 — Sukabumi Selatan</div>
+    <div class="sl-name" style="color: #fff;">Panitia Zakat</div>
+    <div class="sl-sub" style="color: #f7faf8;">RT 010 / RW 04 — Kel. Sukabumi Selatan</div>
   </div>
   <div id="rolePill" class="role-pill warga"><span>🏠</span><span id="roleLabel">Mode Warga</span></div>
   <div class="yr-sw">
@@ -512,7 +513,7 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
       <button class="hamburger" onclick="toggleSidebar()">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <div><div class="pg-title" id="pgTitle">Dashboard</div><div class="pg-sub" style="color: rgb(17, 17, 17);">Panitia Zakat Fitrah RT.010 RW.04</div></div>
+      <div><div class="pg-title" id="pgTitle">Dashboard</div><div class="pg-sub">Badan Amil Zakat RW.03 &amp; RW.04</div></div>
     </div>
     <div class="tb-r">
       <div class="tb-year"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span id="tbYrTxt">—</span></div>
@@ -534,9 +535,10 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
   <!-- ── DASHBOARD ── -->
   <div class="page active" id="page-dashboard">
     <div class="banner">
-      <div class="b-ar">Panitia Zakat RT.010</div>
+      <div class="b-ar">﷽</div>
       <div class="b-txt">
-        <h2>Kelurahan Sukabumi Selatan Kebon Jeruk Jakarta Barat</h2>
+        <h2>Panitia Zakat Fitrah RT.010</h2>
+        <p style="color: #edf7f1;">Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat</p>
       </div>
     </div>
     <div class="stats-grid">
@@ -656,12 +658,13 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
       </div>
 
       <div class="step-card">
-        <div class="sth"><div class="snum">2</div><div><h3>URL Web App</h3><p>Setelah deploy, salin URL dan paste di sini:</p></div></div>
-        <div class="inp-row">
-          <input type="text" class="finp" id="sheetsUrl" placeholder="https://script.google.com/macros/s/...">
-          <button class="btn btn-primary" onclick="saveUrl()">Simpan &amp; Test</button>
+        <div class="sth"><div class="snum">2</div><div><h3>URL Web App</h3><p>URL sudah dikodekan langsung di dalam file HTML. Untuk mengubah, buka file HTML dengan teks editor dan cari baris <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:11px">const SHEETS_URL</code> di bagian JavaScript.</p></div></div>
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:10px 13px;font-size:12px;color:var(--mid);word-break:break-all" id="sheetsUrlDisplay"></div>
+        <input type="hidden" id="sheetsUrl">
+        <div style="display:flex;gap:7px;margin-top:10px">
+          <button class="btn btn-secondary btn-sm" onclick="testConn()">🔌 Test Koneksi</button>
         </div>
-        <div style="margin-top:8px;font-size:11.5px;color:var(--mid)" id="urlStatus"><span class="sdot off"></span>Belum terhubung</div>
+        <div style="margin-top:8px;font-size:11.5px;color:var(--mid)" id="urlStatus"><span class="sdot off"></span>Belum diuji</div>
       </div>
 
       <div class="step-card">
@@ -773,6 +776,34 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
   </div>
 </div>
 
+<!-- ════ LOADING OVERLAY ════ -->
+<div id="loadingOverlay" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(24,51,38,.82);backdrop-filter:blur(6px);flex-direction:column;align-items:center;justify-content:center;gap:14px">
+  <div style="width:44px;height:44px;border:4px solid rgba(255,255,255,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .75s linear infinite"></div>
+  <div id="loadingMsg" style="color:#fff;font-size:14px;font-weight:600">Mengambil data dari Google Sheets...</div>
+  <div style="font-size:11px;color:rgba(255,255,255,.45)">Mohon tunggu sebentar</div>
+</div>
+
+<!-- ════ MODAL URL SETUP (HP baru) ════ -->
+<div class="mov" id="modal-urlsetup">
+  <div class="modal" style="max-width:390px">
+    <div class="mhd"><h2>🔗 Hubungkan Google Sheets</h2></div>
+    <div class="mb">
+      <p style="font-size:12.5px;color:var(--mid);line-height:1.65;margin-bottom:14px">
+        Perangkat ini belum terhubung ke database Google Sheets.<br>
+        Minta URL Web App dari Admin Panitia, lalu paste di sini.
+      </p>
+      <div class="fg"><label class="flbl">URL Google Apps Script Web App</label>
+        <input type="text" class="finp" id="setupUrlInp" placeholder="https://script.google.com/macros/s/...">
+      </div>
+      <div id="setupUrlErr" style="font-size:11px;color:var(--red);display:none;margin-top:4px">❌ URL tidak valid atau koneksi gagal.</div>
+    </div>
+    <div class="mft">
+      <button class="btn btn-secondary" onclick="skipUrlSetup()">Lewati (data lokal)</button>
+      <button class="btn btn-primary" onclick="saveUrlSetup()">Hubungkan &amp; Ambil Data</button>
+    </div>
+  </div>
+</div>
+
 <div id="toasts"></div>
 
 <!-- ════════════════════════════════
@@ -783,11 +814,12 @@ tbody td{padding:10px 12px;color:var(--dark);vertical-align:middle}
 
 // ── PASSWORDS ──
 let PASSWORDS = JSON.parse(localStorage.getItem('z_passwords') || '{}');
-if (!PASSWORDS.admin)   PASSWORDS.admin   = 'admin1234';
-if (!PASSWORDS.panitia) PASSWORDS.panitia = 'panitia123';
+if (!PASSWORDS.admin)   PASSWORDS.admin   = 'adminzakatrt10';
+if (!PASSWORDS.panitia) PASSWORDS.panitia = 'panitiazakatrt10';
 function savePwds() { localStorage.setItem('z_passwords', JSON.stringify(PASSWORDS)); }
 
-let SHEETS_URL = localStorage.getItem('z_url') || '';
+// ⬇️ PASTE URL Google Apps Script Web App di sini
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyVZZoO4s-zbbVXZnp0ehjIBCv42Ab8h9o4WxoOlsEF-vREFtMPaS-ygtgOx3xfEdnV0w/exec';
 let role = null; // 'warga' | 'panitia' | 'admin'
 let delTarget = null;
 let adNeedsRole = null; // which role the quick-login should upgrade to
@@ -911,6 +943,8 @@ function getYDB(yr) { if(!DB[yr])DB[yr]={penerimaan:[],pendayagunaan:[]}; return
 function cDB() { return getYDB(activeYear); }
 function saveDB() { localStorage.setItem('z_db', JSON.stringify(DB)); }
 function ensureInit() {
+  // Hanya load data default jika tidak ada URL Sheets (mode offline/standalone)
+  if (SHEETS_URL) return;
   const d = getYDB(activeYear);
   if (!d.penerimaan.length && activeYear==='2026') {
     d.penerimaan = buildP('2026');
@@ -982,9 +1016,19 @@ function applyRole() {
   // (CSS handles it via body class)
 
   buildYearSel();
-  ensureInit();
-  refreshAll();
-  if(SHEETS_URL) syncAll();
+  if (SHEETS_URL) {
+    initFromSheets();
+  } else {
+    // Tidak ada URL Sheets — cek apakah perangkat baru (DB kosong)
+    const d = getYDB(activeYear);
+    if (!d.penerimaan.length && !d.pendayagunaan.length) {
+      // Tanya URL Sheets dulu
+      document.getElementById('modal-urlsetup').classList.add('open');
+    } else {
+      ensureInit();
+      refreshAll();
+    }
+  }
 }
 
 function logout(){
@@ -1380,9 +1424,7 @@ function changePwd(who){
 // ─────────────────────────────────
 function saveUrl(){
   guardAdmin(()=>{
-    SHEETS_URL=document.getElementById('sheetsUrl').value.trim();
-    localStorage.setItem('z_url',SHEETS_URL);
-    toast('URL tersimpan! Menguji koneksi...','ok');
+    toast('URL sudah dikodekan dalam file HTML. Edit baris SHEETS_URL di kode untuk mengubahnya.','warn');
     testConn();
   });
 }
@@ -1399,23 +1441,75 @@ async function testConn(){
 // sheetName per tahun: PENERIMAAN_2026, PENDAYAGUNAAN_2026, dst.
 function sheetName(t,yr){ return (t==='penerimaan'?'PENERIMAAN':'PENDAYAGUNAAN')+'_'+yr; }
 
-async function syncAll(){if(!SHEETS_URL)return;await syncSheets('penerimaan');await syncSheets('pendayagunaan');}
+// ── Loading overlay helpers ──
+function showLoading(msg='Mengambil data dari Google Sheets...'){
+  const el=document.getElementById('loadingOverlay');
+  document.getElementById('loadingMsg').textContent=msg;
+  el.style.display='flex';
+}
+function hideLoading(){ document.getElementById('loadingOverlay').style.display='none'; }
+
+// ── Inisialisasi dari Sheets saat login di perangkat baru ──
+async function initFromSheets(){
+  showLoading('Mengambil data dari Google Sheets...');
+  try{
+    // Tarik kedua sheet sekaligus
+    await Promise.all([
+      fetchSheetData('penerimaan'),
+      fetchSheetData('pendayagunaan')
+    ]);
+    hideLoading();
+    refreshAll();
+    toast('Data berhasil dimuat dari Google Sheets ✓','ok');
+  }catch(e){
+    hideLoading();
+    // Fallback: load data default jika fetch gagal
+    ensureInit(); refreshAll();
+    toast('Gagal terhubung ke Sheets, data lokal ditampilkan','warn');
+  }
+}
+
+async function fetchSheetData(t){
+  const sn=sheetName(t,activeYear);
+  const r=await fetch(`${SHEETS_URL}?action=get&sheet=${encodeURIComponent(sn)}`);
+  const j=await r.json();
+  if(j.success&&j.data&&j.data.length){
+    const ydb=getYDB(activeYear);
+    ydb[t]=j.data.map(row=>({...row,setor:row.setor==='true'||row.setor===true,jiwa:+row.jiwa||0,zakat:+(row.zakat||0),beras:+(row.beras||0),uang:+(row.uang||0)}));
+    saveDB();
+  }
+}
+
+async function syncAll(){
+  if(!SHEETS_URL)return;
+  showLoading('Sinkronisasi data...');
+  await fetchSheetData('penerimaan');
+  await fetchSheetData('pendayagunaan');
+  hideLoading(); refreshAll();
+  toast('Sinkronisasi selesai ✓','ok');
+}
 async function syncSheets(t){
   if(!SHEETS_URL){toast('URL belum diatur','err');return;}
+  showLoading(`Sync ${t}...`);
   try{
-    const sn=sheetName(t,activeYear);
-    const r=await fetch(`${SHEETS_URL}?action=get&sheet=${encodeURIComponent(sn)}`);
-    const j=await r.json();
-    if(j.success&&j.data&&j.data.length){
-      const ydb=getYDB(activeYear);
-      ydb[t]=j.data.map(row=>({...row,setor:row.setor==='true'||row.setor===true,jiwa:+row.jiwa||0,zakat:+(row.zakat||0),beras:+(row.beras||0),uang:+(row.uang||0)}));
-      saveDB();refreshAll();toast('Data berhasil disinkronkan ✓','ok');
-    }else toast('Sync: belum ada data baru','');
-  }catch(e){toast('Gagal sync: '+e.message,'err');}
+    await fetchSheetData(t);
+    hideLoading(); refreshAll();
+    toast(`Data ${t} disinkronkan ✓`,'ok');
+  }catch(e){hideLoading();toast('Gagal sync: '+e.message,'err');}
 }
 async function pushSheets(t){
   if(!SHEETS_URL)return;
   try{await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'set',sheet:sheetName(t,activeYear),data:cDB()[t]})});}catch(e){}
+}
+
+// ── Handler modal URL setup (HP baru tanpa localStorage) ──
+async function saveUrlSetup(){
+  closeModal('urlsetup');
+  await initFromSheets();
+}
+function skipUrlSetup(){
+  closeModal('urlsetup');
+  ensureInit(); refreshAll();
 }
 function importData(){
   guardAdmin(async()=>{
@@ -1429,36 +1523,273 @@ function importData(){
 }
 
 // ─────────────────────────────────
-// EXPORT (panitia + admin)
+// EXPORT EXCEL — panitia + admin
 // ─────────────────────────────────
 function exportData(){
-  guardPanitia(()=>{
-    const act=document.querySelector('.page.active').id;
-    const yr=years.find(y=>y.id===activeYear);
-    const yl=yr?`${yr.hijri}_${yr.masehi}`:activeYear;
-    let csv='',fn='';
-    if(act==='page-penerimaan'){
-      csv=`Penerimaan Zakat Fitrah ${yl}\nNo,Nama KK,Jumlah Jiwa,Jiwa Zakat,Beras (Liter),Uang (Rp),Sudah Setor,Tanggal Setor\n`;
-      cDB().penerimaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},${r.zakat},${r.beras},${r.uang||0},${r.setor?'Ya':'Belum'},"${r.tgl_setor||''}"\n`);
-      fn=`Penerimaan_${yl}.csv`;
-    }else if(act==='page-pendayagunaan'){
-      csv=`Pendayagunaan Zakat Fitrah ${yl}\nNo,Nama KK,Jumlah Jiwa,Keterangan\n`;
-      cDB().pendayagunaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},"${r.keterangan}"\n`);
-      fn=`Pendayagunaan_${yl}.csv`;
-    }else{
-      csv=`REKAP ZAKAT FITRAH ${yl}\n\nPENERIMAAAN\nNo,Nama,Jiwa,Zakat,Beras,Uang,Setor\n`;
-      cDB().penerimaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},${r.zakat},${r.beras},${r.uang||0},${r.setor?'Ya':'Belum'}\n`);
-      csv+=`\nPENDAYAGUNAAN\nNo,Nama,Jiwa,Keterangan\n`;
-      cDB().pendayagunaan.forEach((r,i)=>csv+=`${i+1},"${r.nama}",${r.jiwa},"${r.keterangan}"\n`);
-      fn=`Rekap_Zakat_${yl}.csv`;
+  guardPanitia(async ()=>{
+    if(typeof ExcelJS === 'undefined'){
+      toast('Memuat ExcelJS, coba lagi sebentar...','warn'); return;
     }
-    const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download=fn;a.click();URL.revokeObjectURL(url);
-    toast('Export berhasil ✓','ok');
+    const yr   = years.find(y=>y.id===activeYear);
+    const yrLabel = yr ? `${yr.hijri} / ${yr.masehi}` : activeYear;
+    const fn   = `Panitia_Zakat_RT.010_${activeYear}.xlsx`;
+    const act  = document.querySelector('.page.active').id;
+    const p    = cDB().penerimaan;
+    const d    = cDB().pendayagunaan;
+
+    // ── Colour palette ──
+    const C = {
+      hdrBg:    '1a3a2a',  // dark forest
+      hdrBg2:   '2d6a4f',  // emerald (secondary header)
+      hdrFont:  'FFFFFF',
+      gold:     'c9a84c',
+      goldFont: '16211a',
+      rowAlt:   'f0faf4',  // light mint stripe
+      rowWhite: 'FFFFFF',
+      totBg:    'dff3e8',
+      totFont:  '16211a',
+      setor:    'd1fae5',  // green tint
+      belum:    'fff7ed',  // orange tint
+      janda:    'fef2f2',  // red tint
+      border:   'b7e4c7',
+      midGray:  '7a9e8c',
+    };
+
+    const thin = { style:'thin', color:{ argb: 'FF'+C.border } };
+    const borderAll = { top:thin, bottom:thin, left:thin, right:thin };
+
+    function hdrCell(ws, row, col, val, bgColor=C.hdrBg, fontSize=10){
+      const cell = ws.getCell(row, col);
+      cell.value = val;
+      cell.font  = { name:'Arial', bold:true, size:fontSize, color:{argb:'FF'+C.hdrFont} };
+      cell.fill  = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+bgColor} };
+      cell.alignment = { horizontal:'center', vertical:'middle', wrapText:true };
+      cell.border = borderAll;
+    }
+
+    function dataCell(ws, row, col, val, opts={}){
+      const cell = ws.getCell(row, col);
+      cell.value = val;
+      cell.font  = { name:'Arial', size:9, bold: opts.bold||false,
+                     color:{argb: 'FF'+(opts.color||C.totFont)} };
+      if(opts.bg) cell.fill = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+opts.bg} };
+      cell.alignment = { horizontal: opts.align||'left', vertical:'middle' };
+      cell.border = borderAll;
+      if(opts.numFmt) cell.numFmt = opts.numFmt;
+    }
+
+    function titleBlock(ws, title, subtitle, cols){
+      // Row 1 — main title
+      ws.mergeCells(1, 1, 1, cols);
+      const t = ws.getCell(1,1);
+      t.value = title;
+      t.font  = { name:'Arial', bold:true, size:13, color:{argb:'FF'+C.hdrFont} };
+      t.fill  = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+C.hdrBg} };
+      t.alignment = { horizontal:'center', vertical:'middle' };
+      ws.getRow(1).height = 28;
+      // Row 2 — subtitle
+      ws.mergeCells(2, 1, 2, cols);
+      const s = ws.getCell(2,1);
+      s.value = subtitle;
+      s.font  = { name:'Arial', size:9, italic:true, color:{argb:'FF'+C.hdrFont} };
+      s.fill  = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+C.hdrBg2} };
+      s.alignment = { horizontal:'center', vertical:'middle' };
+      ws.getRow(2).height = 18;
+    }
+
+    // ════════════════════════════════
+    // Build workbook
+    // ════════════════════════════════
+    const wb = new ExcelJS.Workbook();
+    wb.creator = 'Sistem Zakat Fitrah RT010 RW04';
+    wb.created = new Date();
+
+    const orgName  = 'Panitia Zakat RT.010 RW.04';
+    const orgSub   = `Kelurahan Sukabumi Selatan, Kebon Jeruk, Jakarta Barat | Tahun: ${yrLabel}`;
+
+    // ─── Determine which sheets to build ───
+    const buildP   = (act !== 'page-pendayagunaan');
+    const buildD   = (act !== 'page-penerimaan');
+
+    // ════════════════════════════════
+    // SHEET 1: REKAP (always, if dashboard or all)
+    // ════════════════════════════════
+    if(act === 'page-dashboard' || act === 'page-penerimaan' && false){/* skip */}
+    if(buildP && buildD){
+      const ws = wb.addWorksheet('REKAP', { properties:{tabColor:{argb:'FF'+C.gold}} });
+      ws.mergeCells('A1:F1');
+      const t = ws.getCell('A1');
+      t.value = '📊 REKAPITULASI ZAKAT FITRAH';
+      t.font  = { name:'Arial', bold:true, size:14, color:{argb:'FF'+C.hdrFont} };
+      t.fill  = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+C.hdrBg} };
+      t.alignment = { horizontal:'center', vertical:'middle' };
+      ws.getRow(1).height = 30;
+
+      ws.mergeCells('A2:F2');
+      const s = ws.getCell('A2');
+      s.value = orgName + '  |  ' + orgSub;
+      s.font  = { name:'Arial', size:9, italic:true, color:{argb:'FF'+C.hdrFont} };
+      s.fill  = { type:'pattern', pattern:'solid', fgColor:{argb:'FF'+C.hdrBg2} };
+      s.alignment = { horizontal:'center', vertical:'middle' };
+      ws.getRow(2).height = 16;
+
+      // Stats header
+      ws.getRow(4).height = 18;
+      ['URAIAN','KETERANGAN'].forEach((h,i)=>{
+        hdrCell(ws, 4, i+1, h, C.hdrBg, 10);
+      });
+
+      const tJiwaM = p.reduce((s,r)=>s+(+r.jiwa||0),0);
+      const tZakat = p.reduce((s,r)=>s+(+r.zakat||0),0);
+      const tBeras = p.reduce((s,r)=>s+(+r.beras||0),0);
+      const tUang  = p.reduce((s,r)=>s+(+r.uang||0),0);
+      const tJiwaD = d.reduce((s,r)=>s+(+r.jiwa||0),0);
+      const setor  = p.filter(r=>r.setor).length;
+      const janda  = d.filter(r=>r.keterangan==='JANDA').length;
+
+      const stats = [
+        ['Jumlah KK Muzakki', `${p.length} KK`],
+        ['Total Jiwa Muzakki', `${tJiwaM} jiwa`],
+        ['Jiwa yang Berzakat', `${tZakat} jiwa`],
+        ['Total Beras Terkumpul', `${tBeras.toLocaleString('id-ID')} liter`],
+        ['Total Uang Terkumpul', tUang > 0 ? `Rp ${tUang.toLocaleString('id-ID')}` : '—'],
+        ['Muzakki Sudah Setor', `${setor} KK (${p.length?Math.round(setor/p.length*100):0}%)`],
+        ['Muzakki Belum Setor', `${p.length-setor} KK`],
+        ['',''],
+        ['Jumlah KK Mustahiq', `${d.length} KK`],
+        ['Total Jiwa Mustahiq', `${tJiwaD} jiwa`],
+        ['KK Janda / Dhuafa', `${janda} KK`],
+        ['KK Umum', `${d.length-janda} KK`],
+        ['Estimasi Beras / KK Mustahiq', d.length ? `${(tBeras/d.length).toFixed(1)} liter` : '—'],
+      ];
+
+      stats.forEach((row, i)=>{
+        const ri = 5+i;
+        ws.getRow(ri).height = 16;
+        if(!row[0]){ ws.getRow(ri).height=8; return; }
+        const bg = i<7 ? (i%2===0?C.rowWhite:C.rowAlt) : (i===8?C.rowWhite:(i%2===0?C.rowWhite:C.rowAlt));
+        dataCell(ws, ri, 1, row[0], {bg, bold:true});
+        dataCell(ws, ri, 2, row[1], {bg, align:'left'});
+      });
+
+      ws.columns = [{width:38},{width:28}];
+
+      // Gold accent cell
+      ws.mergeCells('A3:F3');
+      ws.getCell('A3').fill = {type:'pattern',pattern:'solid',fgColor:{argb:'FF'+C.gold}};
+      ws.getCell('A3').value = 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ';
+      ws.getCell('A3').font  = {name:'Arial',bold:true,size:11,color:{argb:'FF'+C.goldFont}};
+      ws.getCell('A3').alignment = {horizontal:'center',vertical:'middle'};
+      ws.getRow(3).height = 20;
+    }
+
+    // ════════════════════════════════
+    // SHEET 2: PENERIMAAN
+    // ════════════════════════════════
+    if(buildP){
+      const ws = wb.addWorksheet('PENERIMAAN', { properties:{tabColor:{argb:'FF2d6a4f'}} });
+      const COLS = 8;
+      titleBlock(ws, '📋 DATA PENERIMAAN ZAKAT FITRAH', orgName + '  |  ' + orgSub, COLS);
+
+      // Column headers row 3
+      ws.getRow(3).height = 22;
+      const hdrs = ['No','Nama Kepala Keluarga','Jumlah Jiwa','Jiwa Zakat','Beras (Liter)','Uang (Rp)','Status Setor','Tanggal Setor'];
+      hdrs.forEach((h,i)=> hdrCell(ws, 3, i+1, h));
+
+      // Data rows
+      p.forEach((r, i)=>{
+        const ri  = 4+i;
+        const bg  = r.setor ? C.setor : (i%2===0 ? C.rowWhite : C.rowAlt);
+        ws.getRow(ri).height = 15;
+        dataCell(ws, ri, 1, i+1,          {bg, align:'center'});
+        dataCell(ws, ri, 2, r.nama,        {bg});
+        dataCell(ws, ri, 3, +r.jiwa||0,   {bg, align:'center'});
+        dataCell(ws, ri, 4, +r.zakat||0,  {bg, align:'center'});
+        dataCell(ws, ri, 5, +r.beras||0,  {bg, align:'center', numFmt:'#,##0.0'});
+        dataCell(ws, ri, 6, +r.uang||0,   {bg, align:'right',  numFmt:'#,##0'});
+        dataCell(ws, ri, 7, r.setor?'✅ Sudah Setor':'⏳ Belum Setor',
+                            {bg: r.setor ? C.setor : C.belum,
+                             color: r.setor ? '16a34a' : 'd97706',
+                             bold:true, align:'center'});
+        dataCell(ws, ri, 8, r.tgl_setor||'—', {bg, align:'center', color: C.midGray});
+      });
+
+      // Total row
+      const tr = 4+p.length;
+      ws.getRow(tr).height = 18;
+      ws.mergeCells(tr, 1, tr, 2);
+      hdrCell(ws, tr, 1, 'TOTAL', C.hdrBg2, 10);
+      ws.getCell(tr,1).alignment = {horizontal:'center',vertical:'middle'};
+      dataCell(ws, tr, 3, `=SUM(C4:C${tr-1})`, {bg:C.totBg, align:'center', bold:true});
+      dataCell(ws, tr, 4, `=SUM(D4:D${tr-1})`, {bg:C.totBg, align:'center', bold:true});
+      dataCell(ws, tr, 5, `=SUM(E4:E${tr-1})`, {bg:C.totBg, align:'center', bold:true, numFmt:'#,##0.0'});
+      dataCell(ws, tr, 6, `=SUM(F4:F${tr-1})`, {bg:C.totBg, align:'right',  bold:true, numFmt:'#,##0'});
+      const setorCount = p.filter(r=>r.setor).length;
+      dataCell(ws, tr, 7, `${setorCount} / ${p.length} sudah setor`, {bg:C.totBg, align:'center', bold:true, color:'16a34a'});
+      dataCell(ws, tr, 8, '', {bg:C.totBg});
+
+      // Column widths
+      ws.columns = [
+        {width:5}, {width:36}, {width:12}, {width:12},
+        {width:14}, {width:16}, {width:18}, {width:16}
+      ];
+      // Freeze top rows
+      ws.views = [{ state:'frozen', ySplit:3 }];
+    }
+
+    // ════════════════════════════════
+    // SHEET 3: PENDAYAGUNAAN
+    // ════════════════════════════════
+    if(buildD){
+      const ws = wb.addWorksheet('PENDAYAGUNAAN', { properties:{tabColor:{argb:'FFc9a84c'}} });
+      const COLS = 4;
+      titleBlock(ws, '🤲 DATA PENDAYAGUNAAN ZAKAT FITRAH', orgName + '  |  ' + orgSub, COLS);
+
+      ws.getRow(3).height = 22;
+      ['No','Nama Kepala Keluarga','Jumlah Jiwa','Keterangan'].forEach((h,i)=>hdrCell(ws,3,i+1,h));
+
+      const jandaCount = d.filter(r=>r.keterangan==='JANDA').length;
+      d.forEach((r, i)=>{
+        const ri  = 4+i;
+        const isJanda = r.keterangan && r.keterangan !== '';
+        const bg  = isJanda ? C.janda : (i%2===0 ? C.rowWhite : C.rowAlt);
+        ws.getRow(ri).height = 15;
+        dataCell(ws, ri, 1, i+1,     {bg, align:'center'});
+        dataCell(ws, ri, 2, r.nama,  {bg});
+        dataCell(ws, ri, 3, +r.jiwa||0, {bg, align:'center'});
+        const ketLabel = r.keterangan || 'Umum';
+        dataCell(ws, ri, 4, ketLabel,
+                 {bg, align:'center',
+                  bold: !!r.keterangan,
+                  color: r.keterangan ? C.hdrBg : C.midGray});
+      });
+
+      // Total row
+      const tr = 4+d.length;
+      ws.getRow(tr).height = 18;
+      ws.mergeCells(tr, 1, tr, 2);
+      hdrCell(ws, tr, 1, 'TOTAL', C.hdrBg2, 10);
+      ws.getCell(tr,1).alignment = {horizontal:'center',vertical:'middle'};
+      dataCell(ws, tr, 3, `=SUM(C4:C${tr-1})`, {bg:C.totBg, align:'center', bold:true});
+      dataCell(ws, tr, 4, `${jandaCount} Janda / ${d.length-jandaCount} Umum`,
+               {bg:C.totBg, align:'center', bold:true, color:C.hdrBg});
+
+      ws.columns = [{width:5},{width:36},{width:14},{width:16}];
+      ws.views = [{ state:'frozen', ySplit:3 }];
+    }
+
+    // ── Download ──
+    showLoading('Membuat file Excel...');
+    const buf  = await wb.xlsx.writeBuffer();
+    hideLoading();
+    const blob = new Blob([buf], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = fn; a.click();
+    URL.revokeObjectURL(url);
+    toast('Export Excel berhasil ✓','ok');
   });
 }
-
 // ─────────────────────────────────
 // APPS SCRIPT CODE
 // ─────────────────────────────────
@@ -1466,7 +1797,7 @@ function renderCode(){
   document.getElementById('codeBox').textContent=
 `/* ============================================================
    GOOGLE APPS SCRIPT — Sistem Zakat Fitrah Multi Tahun
-   Panitia Zakat RT 010 RW 04 — Sukabumi Selatan Jakarta Barat
+   Panitia Zakat RT 010 RW 04 — Sukabumi Selatan
 
    Sheet per tahun:
      PENERIMAAN_2026 / PENDAYAGUNAAN_2026
@@ -1572,8 +1903,8 @@ document.getElementById('accessDenied').addEventListener('click',e=>{if(e.target
 // ─────────────────────────────────
 renderCode();
 document.getElementById('sheetsUrl').value=SHEETS_URL;
+const disp=document.getElementById('sheetsUrlDisplay');
+if(disp) disp.textContent = SHEETS_URL.includes('GANTI_DENGAN') ? '⚠️ URL belum diisi — edit file HTML dan ganti SHEETS_URL' : '✅ '+SHEETS_URL;
 </script>
 </body>
-
 </html>
-
